@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "exactOptionalPropertyTypes": true,
+    "experimentalDecorators": true,
+    "incremental": true,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "outDir": "./dist",
+    "removeComments": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false,
+    "sourceMap": true,
+    "paths": {
+      "#e2e/*": ["e2e/*"],
+      "#helpers/*": ["src/helpers/*"],
+      "#interfaces/*": ["src/interfaces/*"],
+      "#utils/*": ["src/utils/*"]
+    },
+    "target": "es6"
+  },
+  "files": ["declarations/tests.d.ts"],
+  "include": ["src", "e2e", ".eslintrc.js", "jest.config.ts", "jest.setup.ts"]
+}
