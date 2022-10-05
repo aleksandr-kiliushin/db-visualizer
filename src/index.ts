@@ -1,9 +1,7 @@
-async function bootstrap() {
-  if (process.env.PORT === undefined) {
-    throw new Error("process.env.PORT is undefined.")
-  }
+require("dotenv").config({ path: "./local.env" })
 
-  console.log("started")
+const bootstrap = async () => {
+  console.log("process.env.PORT >>", process.env.PORT)
 }
 
 bootstrap()
