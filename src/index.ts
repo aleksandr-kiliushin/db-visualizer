@@ -1,6 +1,8 @@
-const { importer } = require("@dbml/core")
-const fs = require("fs")
-const path = require("path")
+import { IParseDumpResult, parseDumpContents } from "./parseDumpContents"
+
+// const { importer } = require("@dbml/core")
+// const fs = require("fs")
+// const path = require("path")
 
 // console.log("importer >>", importer)
 
@@ -8,12 +10,13 @@ const path = require("path")
 
 require("dotenv").config({ path: "./local.env" })
 
-const bootstrap = async () => {
-  const dumpCode: string = fs.readFileSync(path.join(__dirname, "..", "sample-files", "./dump.sql"), "utf-8")
+export const execute = async ({ dumpPath }: { dumpPath: string }) => {
+  const dumpsContents: IParseDumpResult = parseDumpContents(dumpPath)
+  return dumpsContents
   // const commands = dumpCode.split("\n\n")
   // console.log("commands.length >>", commands.length)
-  const dbmlCode = importer.import(dumpCode, "postgres")
-  console.log("dbmlCode >>", dbmlCode)
+  // const dbmlCode = importer.import(dumpCode, "postgres")
+  // console.log("dbmlCode >>", dbmlCode)
   // const pool = new Pool()
   // const response = await pool.query("SELECT table_name FROM information_schema.tables WHERE table_schema='public'")
   // console.log("response >>", response)
@@ -35,7 +38,5 @@ const bootstrap = async () => {
   // const response = await client.query('SELECT NOW()')
   // await client.end()
 }
-
-bootstrap()
 
 export {}
