@@ -6,10 +6,18 @@ require("dotenv").config({ path: path.join(__dirname, "..", "..", "local.env") }
 export const queryDbData = async ({ tablesNames }: { tablesNames: string[] }) => {
   const client = new Client()
   await client.connect()
-  const response = await client.query("SELECT * FROM board;")
+  const rowsWithTableNames = await Promise.all(
+    tablesNames.map(async (tableName) => ({
+      tableName,
+      tableRows: (await client.query(`SELECT * FROM "${tableName}";`)).rows,
+    }))
+  )
   await client.end()
 
-  return {
-    board: response.rows,
-  }
+  const result: Record<string, unknown> = {}
+  rowsWithTableNames.forEach(({ tableName, tableRows }) => {
+    result[tableName] = tableRows
+  })
+
+  return result
 }
