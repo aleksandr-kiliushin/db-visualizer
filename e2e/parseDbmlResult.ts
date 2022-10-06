@@ -2,13 +2,14 @@ import { IParseDbmlResult } from "src/parseDbml"
 
 export const parseDbmlResult: IParseDbmlResult = {
   relations: [],
-  tables: {},
+  tables: {
+    board: {
+      id: "integer [not null]",
+      name: '"character varying" [not null]',
+      subjectId: "integer",
+    },
+  },
 }
-// Table "board" {
-//   "id" integer [not null]
-//   "name" "character varying" [not null]
-//   "subjectId" integer
-// }
 
 // Table "board_subject" {
 //   "id" integer [not null]
