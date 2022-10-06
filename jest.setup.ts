@@ -1,5 +1,5 @@
-beforeEach(async () => {})
+const { execSync } = require("child_process")
 
-afterEach(() => {})
-
-afterAll(() => {})
+beforeEach(async () => {
+  'echo "bash /var/app/init-db.sh" | docker exec -i db-visualizer-db bash;'
+})

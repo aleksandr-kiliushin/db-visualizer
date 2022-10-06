@@ -34,11 +34,13 @@
     "build": "nest build",
     "check-types": "tsc --noEmit",
     "check-types:watch": "tsc --noEmit --watch",
-    "dev": "ts-node ./src/index.ts",
+    "init-db": "echo \"bash /var/app/init-db.sh\" | docker exec -i db-visualizer-db bash;",
+    "launch-db": "docker-compose -f ./compose.dev.yml up",
     "lint": "eslint \"**/!(migrations)/*.{js,ts}\" --max-warnings=0",
     "lint-staged": "lint-staged",
     "prepare": "husky install",
     "prettier": "prettier --write \"**/*.{js,ts,json}\"",
+    "remove-db-image": "docker stop db-visualizer-db && docker rm db-visualizer-db && docker rmi db-visualizer_database",
     "test": "jest --runInBand"
   },
   "version": "0.0.1"

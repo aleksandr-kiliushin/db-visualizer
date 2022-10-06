@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  database:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile.dev
+    container_name: db-visualizer-db
+    env_file:
+      - ./local.env
+    ports:
+      - 5432:5432
+    restart: on-failure
+    volumes:
+      - .:/var/app
