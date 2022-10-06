@@ -34,6 +34,7 @@
     "build": "nest build",
     "check-types": "tsc --noEmit",
     "check-types:watch": "tsc --noEmit --watch",
+    "execute": "ts-node ./src/index.ts",
     "init-db": "echo \"bash /var/app/init-db.sh\" | docker exec -i db-visualizer-db bash;",
     "launch-db": "docker-compose -f ./compose.dev.yml up",
     "lint": "eslint \"**/!(migrations)/*.{js,ts}\" --max-warnings=0",
