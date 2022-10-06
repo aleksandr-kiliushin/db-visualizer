@@ -9,16 +9,11 @@ const path = require("path")
 require("dotenv").config({ path: "./local.env" })
 
 const bootstrap = async () => {
-  const dumpCode: string = fs.readFileSync(path.join(__dirname, "./dump-copy.sql"), "utf-8")
-
-  const commands = dumpCode.split("\n\n")
-
-  console.log("commands.length >>", commands.length)
-
-  // const dbml = importer.import(dump, "postgres")
-
-  // console.log("dbml >>", dbml)
-
+  const dumpCode: string = fs.readFileSync(path.join(__dirname, "..", "sample-files", "./dump.sql"), "utf-8")
+  // const commands = dumpCode.split("\n\n")
+  // console.log("commands.length >>", commands.length)
+  const dbmlCode = importer.import(dumpCode, "postgres")
+  console.log("dbmlCode >>", dbmlCode)
   // const pool = new Pool()
   // const response = await pool.query("SELECT table_name FROM information_schema.tables WHERE table_schema='public'")
   // console.log("response >>", response)
@@ -42,3 +37,5 @@ const bootstrap = async () => {
 }
 
 bootstrap()
+
+export {}
