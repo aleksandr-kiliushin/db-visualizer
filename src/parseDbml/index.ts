@@ -9,19 +9,20 @@ export const parseDbml = (dbmlCode: string): IParseDbmlResult => {
   const dbmlLiterals = dbmlCode.split("\n\n")
 
   const tables: IParseDbmlResult["tables"] = {}
+  const relations: IParseDbmlResult["relations"] = []
 
   dbmlLiterals.forEach((dbmlLiteral) => {
     if (dbmlLiteral.includes('Table "')) {
       const tableTitleMatchings = dbmlLiteral.match(/(?<=^Table ")\w+/)
       if (tableTitleMatchings === null) {
-        throw new Error("table name matchings is null")
+        throw new Error("tableTitleMatchings is null")
       }
       const tableTitle = tableTitleMatchings[0]
 
       const columnsObjectMatchings = dbmlLiteral.match(/(?<={\n)(.|\n)+(?=\n})/)
 
       if (columnsObjectMatchings === null) {
-        throw new Error("column object matchings is null")
+        throw new Error("columnsObjectMatchings is null")
       }
 
       const columnsObjectMatch = columnsObjectMatchings[0]
@@ -43,12 +44,32 @@ export const parseDbml = (dbmlCode: string): IParseDbmlResult => {
         tables[tableTitle][columnName] = columnDescription
       })
     }
+
+    if (dbmlLiteral.includes('Ref:"')) {
+      const relationsFieldsMatchings = dbmlLiteral.match(/"\w+"."\w+"/g)
+      if (relationsFieldsMatchings === null) {
+        throw new Error("relationsFieldsMatchings is null")
+      }
+      const [relationFirstTableMatching, relationSecondTableMatching] = relationsFieldsMatchings
+      const [relationFirstTableName, relationFirstTableColumnName] = relationFirstTableMatching
+        .split(".")
+        .map((item) => item.replace(/"/g, ""))
+      const [relationSecondTableName, relationSecondTableColumnName] = relationSecondTableMatching
+        .split(".")
+        .map((item) => item.replace(/"/g, ""))
+
+      relations.push([
+        {
+          tableName: relationFirstTableName,
+          columnName: relationFirstTableColumnName,
+        },
+        {
+          tableName: relationSecondTableName,
+          columnName: relationSecondTableColumnName,
+        },
+      ])
+    }
   })
 
-  return {
-    tables,
-    relations: [],
-  }
+  return { tables, relations }
 }
-
-export {}

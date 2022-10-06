@@ -1,7 +1,6 @@
 import { IParseDbmlResult } from "src/parseDbml"
 
 export const parseDbmlResult: IParseDbmlResult = {
-  relations: [],
   tables: {
     board: {
       id: "integer [not null]",
@@ -43,20 +42,38 @@ export const parseDbmlResult: IParseDbmlResult = {
       boardId: "integer [not null]",
     },
   },
+  relations: [
+    [
+      { tableName: "board", columnName: "id" },
+      { tableName: "budgeting_category", columnName: "boardId" },
+    ],
+    [
+      { tableName: "user", columnName: "id" },
+      { tableName: "user_administrated_boards_board", columnName: "userId" },
+    ],
+    [
+      { tableName: "budgeting_category_type", columnName: "id" },
+      { tableName: "budgeting_category", columnName: "typeId" },
+    ],
+    [
+      { tableName: "board", columnName: "id" },
+      { tableName: "user_administrated_boards_board", columnName: "boardId" },
+    ],
+    [
+      { tableName: "board_subject", columnName: "id" },
+      { tableName: "board", columnName: "subjectId" },
+    ],
+    [
+      { tableName: "user", columnName: "id" },
+      { tableName: "user_boards_board", columnName: "userId" },
+    ],
+    [
+      { tableName: "board", columnName: "id" },
+      { tableName: "user_boards_board", columnName: "boardId" },
+    ],
+    [
+      { tableName: "budgeting_category", columnName: "id" },
+      { tableName: "budgeting_record", columnName: "categoryId" },
+    ],
+  ],
 }
-
-// Ref:"board"."id" < "budgeting_category"."boardId" [delete: cascade]
-
-// Ref:"user"."id" < "user_administrated_boards_board"."userId" [update: cascade, delete: cascade]
-
-// Ref:"budgeting_category_type"."id" < "budgeting_category"."typeId"
-
-// Ref:"board"."id" < "user_administrated_boards_board"."boardId" [delete: cascade]
-
-// Ref:"board_subject"."id" < "board"."subjectId"
-
-// Ref:"user"."id" < "user_boards_board"."userId" [update: cascade, delete: cascade]
-
-// Ref:"board"."id" < "user_boards_board"."boardId" [delete: cascade]
-
-// Ref:"budgeting_category"."id" < "budgeting_record"."categoryId" [delete: cascade]

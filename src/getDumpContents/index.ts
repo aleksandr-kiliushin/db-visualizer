@@ -17,5 +17,3 @@ export const getDumpContents = (dampPath: string): IGetDumpContentsResult => {
 
   return { createTablesCommands, setRelationsCommands }
 }
-
-export {}
