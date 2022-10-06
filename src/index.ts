@@ -1,6 +1,7 @@
 import { convertDumpContentsToDbmlCode } from "./convertDumpContentsToDbmlCode"
 import { IGetDumpContentsResult, getDumpContents } from "./getDumpContents"
 import { parseDbml } from "./parseDbml"
+import { queryDbData } from "./queryDbData"
 
 // const { importer } = require("@dbml/core")
 // const fs = require("fs")
@@ -16,8 +17,10 @@ export const execute = async ({ dumpPath }: { dumpPath: string }) => {
   const dumpsContents: IGetDumpContentsResult = getDumpContents(dumpPath)
   const dbmlCode = convertDumpContentsToDbmlCode(dumpsContents)
   const parsedDbmlCode = parseDbml(dbmlCode)
+  const dbData = await queryDbData()
   return {
     schema: parsedDbmlCode,
+    data: dbData,
   }
   // const commands = dumpCode.split("\n\n")
   // console.log("commands.length >>", commands.length)

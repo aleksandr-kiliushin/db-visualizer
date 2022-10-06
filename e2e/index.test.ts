@@ -1,5 +1,6 @@
 import { execute } from "../src/index"
 import { parseDbmlResult } from "./parseDbmlResult"
+import { queryDbDataResult } from "./queryDbDataResult"
 
 const path = require("path")
 
@@ -8,6 +9,7 @@ describe("execute", () => {
   it("works", async () => {
     expect(await execute({ dumpPath })).toEqual({
       schema: parseDbmlResult,
+      data: queryDbDataResult,
     })
   })
 })
