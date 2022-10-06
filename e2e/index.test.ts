@@ -5,11 +5,10 @@ const path = require("path")
 const { execute } = require("../src/index")
 
 describe("execute", () => {
+  const dumpPath = path.join(__dirname, "..", "sample-files", "dump.sql")
   it("works", async () => {
-    expect(
-      await execute({
-        dumpPath: path.join(__dirname, "..", "sample-files", "dump.sql"),
-      })
-    ).toEqual(parseDbmlResult)
+    expect(await execute({ dumpPath })).toEqual({
+      schema: parseDbmlResult,
+    })
   })
 })

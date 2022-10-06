@@ -16,7 +16,9 @@ export const execute = async ({ dumpPath }: { dumpPath: string }) => {
   const dumpsContents: IGetDumpContentsResult = getDumpContents(dumpPath)
   const dbmlCode = convertDumpContentsToDbmlCode(dumpsContents)
   const parsedDbmlCode = parseDbml(dbmlCode)
-  return parsedDbmlCode
+  return {
+    schema: parsedDbmlCode,
+  }
   // const commands = dumpCode.split("\n\n")
   // console.log("commands.length >>", commands.length)
   // const dbmlCode = importer.import(dumpCode, "postgres")
