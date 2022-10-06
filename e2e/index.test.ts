@@ -1,4 +1,4 @@
-import { convertDumpContentsToDbmlCodeResult } from "./convertDumpContentsToDbmlCodeResult"
+import { parseDbmlResult } from "./parseDbmlResult"
 
 const path = require("path")
 
@@ -10,6 +10,6 @@ describe("execute", () => {
       await execute({
         dumpPath: path.join(__dirname, "..", "sample-files", "dump.sql"),
       })
-    ).toEqual(convertDumpContentsToDbmlCodeResult)
+    ).toEqual(parseDbmlResult)
   })
 })

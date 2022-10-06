@@ -1,5 +1,6 @@
 import { convertDumpContentsToDbmlCode } from "./convertDumpContentsToDbmlCode"
 import { IGetDumpContentsResult, getDumpContents } from "./getDumpContents"
+import { parseDbml } from "./parseDbml"
 
 // const { importer } = require("@dbml/core")
 // const fs = require("fs")
@@ -14,7 +15,8 @@ require("dotenv").config({ path: "./local.env" })
 export const execute = async ({ dumpPath }: { dumpPath: string }) => {
   const dumpsContents: IGetDumpContentsResult = getDumpContents(dumpPath)
   const dbmlCode = convertDumpContentsToDbmlCode(dumpsContents)
-  return dbmlCode
+  const parsedDbmlCode = parseDbml(dbmlCode)
+  return parsedDbmlCode
   // const commands = dumpCode.split("\n\n")
   // console.log("commands.length >>", commands.length)
   // const dbmlCode = importer.import(dumpCode, "postgres")
