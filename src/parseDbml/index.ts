@@ -6,40 +6,47 @@ export interface IParseDbmlResult {
 }
 
 export const parseDbml = (dbmlCode: string): IParseDbmlResult => {
-  const [firstTableDbmlCode] = dbmlCode.split("\n\n")
-  const boardTitleMatchings = firstTableDbmlCode.match(/(?<=^Table ")\w+/)
+  const dbmlLiterals = dbmlCode.split("\n\n")
 
-  if (boardTitleMatchings === null) {
-    throw new Error("table name matchings is null")
-  }
+  const tables: IParseDbmlResult["tables"] = {}
 
-  const columnsObjectMatchings = firstTableDbmlCode.match(/(?<={\n)(.|\n)+(?=\n})/)
+  dbmlLiterals.forEach((dbmlLiteral) => {
+    if (dbmlLiteral.includes('Table "')) {
+      const tableTitleMatchings = dbmlLiteral.match(/(?<=^Table ")\w+/)
+      if (tableTitleMatchings === null) {
+        throw new Error("table name matchings is null")
+      }
+      const tableTitle = tableTitleMatchings[0]
 
-  if (columnsObjectMatchings === null) {
-    throw new Error("column object matchings is null")
-  }
+      const columnsObjectMatchings = dbmlLiteral.match(/(?<={\n)(.|\n)+(?=\n})/)
 
-  const columnsObjectMatch = columnsObjectMatchings[0]
-  const columns = columnsObjectMatch.split("\n").map((column) => column.trim())
+      if (columnsObjectMatchings === null) {
+        throw new Error("column object matchings is null")
+      }
 
-  const boardTableColumns: Record<string, string> = {}
+      const columnsObjectMatch = columnsObjectMatchings[0]
+      const columns = columnsObjectMatch.split("\n").map((column) => column.trim())
 
-  columns.forEach((column) => {
-    const columnNameMatchings = column.match(/(?<=")\w+/)
-    if (columnNameMatchings === null) {
-      throw new Error("columnNameMatchings is null")
+      tables[tableTitle] = {}
+
+      columns.forEach((column) => {
+        const columnNameMatchings = column.match(/(?<=")\w+/)
+        if (columnNameMatchings === null) {
+          throw new Error("columnNameMatchings is null")
+        }
+        const columnName = columnNameMatchings[0]
+        const columnDescriptionMatching = column.match(/(?<="\w+" ).+/)
+        if (columnDescriptionMatching === null) {
+          throw new Error("columnDescriptionMatching is null")
+        }
+        const columnDescription = columnDescriptionMatching[0]
+        tables[tableTitle][columnName] = columnDescription
+      })
     }
-    const columnDescriptionMatching = column.match(/(?<="\w+" ).+/)
-    if (columnDescriptionMatching === null) {
-      throw new Error("columnDescriptionMatching is null")
-    }
-    boardTableColumns[columnNameMatchings[0]] = columnDescriptionMatching[0]
   })
 
   return {
-    tables: {
-      [boardTitleMatchings[0]]: boardTableColumns,
-    },
+    tables,
     relations: [],
   }
 }

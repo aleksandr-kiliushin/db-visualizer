@@ -8,49 +8,42 @@ export const parseDbmlResult: IParseDbmlResult = {
       name: '"character varying" [not null]',
       subjectId: "integer",
     },
+    board_subject: {
+      id: "integer [not null]",
+      name: '"character varying" [not null]',
+    },
+    budgeting_category: {
+      id: "integer [not null]",
+      name: '"character varying" [not null]',
+      typeId: "integer",
+      boardId: "integer",
+    },
+    budgeting_category_type: {
+      id: "integer [not null]",
+      name: '"character varying" [not null]',
+    },
+    budgeting_record: {
+      amount: "integer [not null]",
+      date: '"character varying" [not null]',
+      id: "integer [not null]",
+      isTrashed: "boolean [not null, default: false]",
+      categoryId: "integer",
+    },
+    user: {
+      id: "integer [not null]",
+      username: '"character varying" [not null]',
+      password: '"character varying" [not null]',
+    },
+    user_administrated_boards_board: {
+      userId: "integer [not null]",
+      boardId: "integer [not null]",
+    },
+    user_boards_board: {
+      userId: "integer [not null]",
+      boardId: "integer [not null]",
+    },
   },
 }
-
-// Table "board_subject" {
-//   "id" integer [not null]
-//   "name" "character varying" [not null]
-// }
-
-// Table "budgeting_category" {
-//   "id" integer [not null]
-//   "name" "character varying" [not null]
-//   "typeId" integer
-//   "boardId" integer
-// }
-
-// Table "budgeting_category_type" {
-//   "id" integer [not null]
-//   "name" "character varying" [not null]
-// }
-
-// Table "budgeting_record" {
-//   "amount" integer [not null]
-//   "date" "character varying" [not null]
-//   "id" integer [not null]
-//   "isTrashed" boolean [not null, default: false]
-//   "categoryId" integer
-// }
-
-// Table "user" {
-//   "id" integer [not null]
-//   "username" "character varying" [not null]
-//   "password" "character varying" [not null]
-// }
-
-// Table "user_administrated_boards_board" {
-//   "userId" integer [not null]
-//   "boardId" integer [not null]
-// }
-
-// Table "user_boards_board" {
-//   "userId" integer [not null]
-//   "boardId" integer [not null]
-// }
 
 // Ref:"board"."id" < "budgeting_category"."boardId" [delete: cascade]
 
