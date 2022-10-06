@@ -1,11 +1,13 @@
-import { IParseDumpResult } from "./index"
+import { IGetDumpContentsResult } from "./index"
 
-const { parseDumpContents } = require("./index")
+const { getDumpContents } = require("./index")
 const path = require("path")
 
-describe("parseDumpContents", () => {
+describe("getDumpContents", () => {
   it("works", () => {
-    expect(parseDumpContents(path.join(__dirname, "..", "..", "sample-files", "dump.sql"))).toEqual<IParseDumpResult>({
+    expect(
+      getDumpContents(path.join(__dirname, "..", "..", "sample-files", "dump.sql"))
+    ).toEqual<IGetDumpContentsResult>({
       createTablesCommands: [
         `CREATE TABLE public.board (
     id integer NOT NULL,

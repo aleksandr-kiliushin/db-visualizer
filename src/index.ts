@@ -1,4 +1,4 @@
-import { IParseDumpResult, parseDumpContents } from "./parseDumpContents"
+import { IGetDumpContentsResult, getDumpContents } from "./getDumpContents"
 
 // const { importer } = require("@dbml/core")
 // const fs = require("fs")
@@ -11,7 +11,7 @@ import { IParseDumpResult, parseDumpContents } from "./parseDumpContents"
 require("dotenv").config({ path: "./local.env" })
 
 export const execute = async ({ dumpPath }: { dumpPath: string }) => {
-  const dumpsContents: IParseDumpResult = parseDumpContents(dumpPath)
+  const dumpsContents: IGetDumpContentsResult = getDumpContents(dumpPath)
   return dumpsContents
   // const commands = dumpCode.split("\n\n")
   // console.log("commands.length >>", commands.length)

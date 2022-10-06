@@ -1,11 +1,11 @@
 const fs = require("fs")
 
-export interface IParseDumpResult {
+export interface IGetDumpContentsResult {
   createTablesCommands: string[]
   setRelationsCommands: string[]
 }
 
-export const parseDumpContents = (dampPath: string): IParseDumpResult => {
+export const getDumpContents = (dampPath: string): IGetDumpContentsResult => {
   const dumpCode: string = fs.readFileSync(dampPath, "utf-8")
   const commands = dumpCode.split("\n\n")
   const createTablesCommands = commands.filter((command) => {
