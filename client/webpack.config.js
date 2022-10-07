@@ -32,7 +32,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      "#client": path.resolve(process.cwd(), "src/client"),
+      "#client": path.resolve(process.cwd(), "client"),
     },
     extensions: [".js", ".ts"],
   },
