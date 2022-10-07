@@ -17,6 +17,12 @@ const _data = async (hierarchy, FileAttachment) => {
   return hierarchy(await FileAttachment("flare.json").json())
 }
 
+const _id = () => {
+  return (node) => {
+    return node.data.name
+  }
+}
+
 const _bilink = (id) => {
   return (root) => {
     const map = new Map(root.leaves().map((d) => [id(d), d]))
@@ -29,7 +35,6 @@ const _bilink = (id) => {
         o[1].incoming.push(o)
       }
     }
-    console.log("root >>", root)
     return root
   }
 }
@@ -109,12 +114,6 @@ const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, col
   }
 
   return svg.node()
-}
-
-const _id = () => {
-  return function id(node) {
-    return `${node.parent ? id(node.parent) + "." : ""}${node.data.name}`
-  }
 }
 
 const _line = (d3) => {
