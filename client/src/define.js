@@ -33,6 +33,12 @@ const _bilink = (id) => {
   }
 }
 
+const _id = () => {
+  return (node) => {
+    return `${node.parent ? id(node.parent) + "." : ""}${node.data.name}`
+  }
+}
+
 // eslint-disable-next-line max-params
 const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, colorout) => {
   const root = tree(
@@ -108,12 +114,6 @@ const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, col
   }
 
   return svg.node()
-}
-
-const _id = () => {
-  return function id(node) {
-    return `${node.parent ? id(node.parent) + "." : ""}${node.data.name}`
-  }
 }
 
 const _line = (d3) => {
