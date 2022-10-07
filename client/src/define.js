@@ -4,7 +4,7 @@ const _hierarchy = () => {
     Object.entries(sourceData.data).forEach(([tableName, rows]) => {
       const tableData = { name: tableName, children: [] }
       rows.forEach((row, rowIndex) => {
-        tableData.children.push({ name: `${tableName}#${rowIndex}`, imports: [] })
+        tableData.children.push({ name: `${tableName}#${rowIndex}`, fields: row, imports: [] })
       })
       result.children.push(tableData)
     })
@@ -41,13 +41,7 @@ const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, col
     })
     .on("mouseover", overed)
     .on("mouseout", outed)
-    .call((text) =>
-      text.append("title").text(
-        (d) => `${id(d)}
-${d.outgoing.length} outgoing
-${d.incoming.length} incoming`
-      )
-    )
+    .call((text) => text.append("title").text((d) => JSON.stringify(d.data.fields, null, 2)))
 
   const link = svg
     .append("g")
