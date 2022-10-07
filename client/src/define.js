@@ -9,7 +9,7 @@ const _hierarchy = () => {
         tableData.children.push({
           fields: row,
           imports: [],
-          name: `${tableName} #${rowIndex}`,
+          name: `${tableName} #${rowIndex + 1}`,
           tableName,
         })
       })
@@ -47,7 +47,13 @@ const _bilink = (id) => {
           .find((leave) => d.data.fields[relationFrom.columnName] === leave.data.fields[relationTo.columnName])
         if (relatedLeaf !== undefined) {
           d.incoming.push([d, relatedLeaf])
-          d.outgoing.push([d, relatedLeaf])
+          d.outgoing.push([relatedLeaf, d])
+        } else {
+          console.group()
+          console.log("relatedLeaf === undefined")
+          console.log("d >>", d)
+          console.log("relatedLeaf >>", relatedLeaf)
+          console.groupEnd()
         }
       }
     }
