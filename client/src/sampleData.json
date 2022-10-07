@@ -1,52 +1,42 @@
 [
   {
     "name": "flare.animate.Transitioner",
-    "size": 19975,
     "imports": ["flare.util.IValueProxy", "flare.util.Property"]
   },
   {
     "name": "flare.display.RectSprite",
-    "size": 3623,
     "imports": []
   },
   {
     "name": "flare.display.TextSprite",
-    "size": 10066,
     "imports": []
   },
   {
     "name": "flare.query.AggregateExpression",
-    "size": 1616,
     "imports": []
   },
   {
     "name": "flare.query.Arithmetic",
-    "size": 3891,
     "imports": []
   },
   {
     "name": "flare.query.Comparison",
-    "size": 5103,
     "imports": []
   },
   {
     "name": "flare.scale.Scale",
-    "size": 4268,
     "imports": ["flare.scale.ScaleType"]
   },
   {
     "name": "flare.scale.ScaleType",
-    "size": 1821,
     "imports": ["flare.scale.Scale"]
   },
   {
     "name": "flare.util.Arrays",
-    "size": 8258,
     "imports": ["flare.util.IValueProxy", "flare.util.Property", "flare.util.IEvaluable"]
   },
   {
     "name": "flare.util.Displays",
-    "size": 12555,
     "imports": [
       "flare.util.IValueProxy",
       "flare.util.Filter",
@@ -57,67 +47,54 @@
   },
   {
     "name": "flare.util.Filter",
-    "size": 2324,
     "imports": ["flare.util.Property"]
   },
   {
     "name": "flare.util.heap.FibonacciHeap",
-    "size": 9354,
     "imports": ["flare.util.heap.HeapNode"]
   },
   {
     "name": "flare.util.heap.HeapNode",
-    "size": 1233,
     "imports": ["flare.util.heap.FibonacciHeap"]
   },
   {
     "name": "flare.util.IEvaluable",
-    "size": 335,
     "imports": []
   },
   {
     "name": "flare.util.IValueProxy",
-    "size": 874,
     "imports": []
   },
   {
     "name": "flare.util.palette.ColorPalette",
-    "size": 6367,
     "imports": ["flare.util.palette.Palette"]
   },
   {
     "name": "flare.util.palette.Palette",
-    "size": 1229,
     "imports": []
   },
   {
     "name": "flare.util.Property",
-    "size": 5559,
     "imports": ["flare.util.IValueProxy", "flare.util.IEvaluable"]
   },
   {
     "name": "flare.util.Shapes",
-    "size": 19118,
     "imports": ["flare.util.Arrays"]
   },
   {
     "name": "flare.util.Sort",
-    "size": 6887,
     "imports": ["flare.util.Arrays", "flare.util.Property"]
   },
   {
     "name": "flare.util.Stats",
-    "size": 6557,
     "imports": ["flare.util.Arrays", "flare.util.Property"]
   },
   {
     "name": "flare.vis.axis.Axes",
-    "size": 1302,
     "imports": ["flare.animate.Transitioner", "flare.vis.Visualization"]
   },
   {
     "name": "flare.vis.axis.Axis",
-    "size": 24593,
     "imports": [
       "flare.animate.Transitioner",
       "flare.util.Arrays",
@@ -131,17 +108,14 @@
   },
   {
     "name": "flare.vis.axis.AxisGridLine",
-    "size": 652,
     "imports": ["flare.vis.axis.Axis"]
   },
   {
     "name": "flare.vis.axis.AxisLabel",
-    "size": 636,
     "imports": ["flare.vis.axis.Axis", "flare.display.TextSprite"]
   },
   {
     "name": "flare.vis.axis.CartesianAxes",
-    "size": 6703,
     "imports": [
       "flare.animate.Transitioner",
       "flare.display.RectSprite",
@@ -154,12 +128,10 @@
   },
   {
     "name": "flare.vis.controls.Control",
-    "size": 1353,
     "imports": ["flare.util.Filter"]
   },
   {
     "name": "flare.vis.data.Data",
-    "size": 20544,
     "imports": [
       "flare.vis.data.EdgeSprite",
       "flare.vis.data.NodeSprite",
@@ -174,7 +146,6 @@
   },
   {
     "name": "flare.vis.data.DataList",
-    "size": 19788,
     "imports": [
       "flare.animate.Transitioner",
       "flare.vis.data.NodeSprite",
@@ -192,17 +163,14 @@
   },
   {
     "name": "flare.vis.data.DataSprite",
-    "size": 10349,
     "imports": ["flare.vis.data.Data"]
   },
   {
     "name": "flare.vis.data.EdgeSprite",
-    "size": 3301,
     "imports": ["flare.vis.data.DataSprite", "flare.vis.data.NodeSprite", "flare.vis.data.Data"]
   },
   {
     "name": "flare.vis.data.NodeSprite",
-    "size": 19382,
     "imports": [
       "flare.animate.Transitioner",
       "flare.util.Arrays",
@@ -217,7 +185,6 @@
   },
   {
     "name": "flare.vis.data.ScaleBinding",
-    "size": 11275,
     "imports": [
       "flare.scale.ScaleType",
       "flare.scale.Scale",
@@ -228,7 +195,6 @@
   },
   {
     "name": "flare.vis.data.Tree",
-    "size": 7147,
     "imports": [
       "flare.vis.data.EdgeSprite",
       "flare.vis.events.DataEvent",
@@ -238,7 +204,6 @@
   },
   {
     "name": "flare.vis.events.DataEvent",
-    "size": 2313,
     "imports": [
       "flare.vis.data.EdgeSprite",
       "flare.vis.data.NodeSprite",
@@ -248,7 +213,6 @@
   },
   {
     "name": "flare.vis.operator.encoder.Encoder",
-    "size": 4060,
     "imports": [
       "flare.animate.Transitioner",
       "flare.vis.data.DataSprite",
@@ -262,12 +226,10 @@
   },
   {
     "name": "flare.vis.operator.IOperator",
-    "size": 1286,
     "imports": ["flare.animate.Transitioner", "flare.vis.Visualization", "flare.vis.operator.Operator"]
   },
   {
     "name": "flare.vis.operator.Operator",
-    "size": 2490,
     "imports": [
       "flare.animate.Transitioner",
       "flare.vis.operator.IOperator",
@@ -278,7 +240,6 @@
   },
   {
     "name": "flare.vis.Visualization",
-    "size": 16540,
     "imports": [
       "flare.animate.Transitioner",
       "flare.vis.operator.IOperator",
