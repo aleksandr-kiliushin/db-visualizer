@@ -7,7 +7,7 @@ const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, col
 
   const svg = d3.create("svg").attr("viewBox", [-width / 2, -width / 2, width, width])
 
-  const node = svg
+  svg
     .append("g")
     .attr("font-family", "sans-serif")
     .attr("font-size", 10)
@@ -120,26 +120,6 @@ const _id = () => {
   }
 }
 
-const _colorin = () => {
-  return "#00f"
-}
-
-const _colorout = () => {
-  return "#f00"
-}
-
-const _colornone = () => {
-  return "#ccc"
-}
-
-const _width = () => {
-  return 954
-}
-
-const _radius = (width) => {
-  return width / 2
-}
-
 const _line = (d3) => {
   return d3
     .lineRadial()
@@ -186,11 +166,11 @@ export const define = (runtime, observer) => {
   main.variable(observer("hierarchy")).define("hierarchy", _hierarchy)
   main.variable(observer("bilink")).define("bilink", ["id"], _bilink)
   main.variable(observer("id")).define("id", _id)
-  main.variable(observer("colorin")).define("colorin", _colorin)
-  main.variable(observer("colorout")).define("colorout", _colorout)
-  main.variable(observer("colornone")).define("colornone", _colornone)
-  main.variable(observer("width")).define("width", _width)
-  main.variable(observer("radius")).define("radius", ["width"], _radius)
+  main.variable(observer("colorin")).define("colorin", () => "#00f")
+  main.variable(observer("colorout")).define("colorout", () => "#f00")
+  main.variable(observer("colornone")).define("colornone", () => "#ccc")
+  main.variable(observer("width")).define("width", () => 954)
+  main.variable(observer("radius")).define("radius", ["width"], (width) => width / 2)
   main.variable(observer("line")).define("line", ["d3"], _line)
   main.variable(observer("tree")).define("tree", ["d3", "radius"], _tree)
   main.variable(observer("d3")).define("d3", ["require"], _d3)
