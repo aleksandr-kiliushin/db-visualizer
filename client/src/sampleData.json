@@ -109,7 +109,11 @@
     "size": 781,
     "imports": ["flare.query.Expression", "flare.query.AggregateExpression"]
   },
-  { "name": "flare.query.DateUtil", "size": 4141, "imports": ["flare.query.Fn"] },
+  {
+    "name": "flare.query.DateUtil",
+    "size": 4141,
+    "imports": ["flare.query.Fn"]
+  },
   {
     "name": "flare.query.Distinct",
     "size": 933,
@@ -132,9 +136,21 @@
     "size": 3240,
     "imports": ["flare.query.DateUtil", "flare.query.Expression", "flare.query.StringUtil"]
   },
-  { "name": "flare.query.If", "size": 2732, "imports": ["flare.query.Expression"] },
-  { "name": "flare.query.IsA", "size": 2039, "imports": ["flare.query.Expression", "flare.query.If"] },
-  { "name": "flare.query.Literal", "size": 1214, "imports": ["flare.query.Expression"] },
+  {
+    "name": "flare.query.If",
+    "size": 2732,
+    "imports": ["flare.query.Expression"]
+  },
+  {
+    "name": "flare.query.IsA",
+    "size": 2039,
+    "imports": ["flare.query.Expression", "flare.query.If"]
+  },
+  {
+    "name": "flare.query.Literal",
+    "size": 1214,
+    "imports": ["flare.query.Expression"]
+  },
   {
     "name": "flare.query.Match",
     "size": 3748,
@@ -145,51 +161,131 @@
     "size": 843,
     "imports": ["flare.query.Expression", "flare.query.AggregateExpression"]
   },
-  { "name": "flare.query.methods.add", "size": 593, "imports": ["flare.query.methods.or", "flare.query.Arithmetic"] },
-  { "name": "flare.query.methods.and", "size": 330, "imports": ["flare.query.methods.or"] },
-  { "name": "flare.query.methods.average", "size": 287, "imports": ["flare.query.methods.or"] },
-  { "name": "flare.query.methods.count", "size": 277, "imports": ["flare.query.Count", "flare.query.methods.or"] },
+  {
+    "name": "flare.query.methods.add",
+    "size": 593,
+    "imports": ["flare.query.methods.or", "flare.query.Arithmetic"]
+  },
+  {
+    "name": "flare.query.methods.and",
+    "size": 330,
+    "imports": ["flare.query.methods.or"]
+  },
+  {
+    "name": "flare.query.methods.average",
+    "size": 287,
+    "imports": ["flare.query.methods.or"]
+  },
+  {
+    "name": "flare.query.methods.count",
+    "size": 277,
+    "imports": ["flare.query.Count", "flare.query.methods.or"]
+  },
   {
     "name": "flare.query.methods.distinct",
     "size": 292,
     "imports": ["flare.query.Distinct", "flare.query.methods.or"]
   },
-  { "name": "flare.query.methods.div", "size": 595, "imports": ["flare.query.methods.or", "flare.query.Arithmetic"] },
-  { "name": "flare.query.methods.eq", "size": 594, "imports": ["flare.query.Comparison", "flare.query.methods.or"] },
-  { "name": "flare.query.methods.fn", "size": 460, "imports": ["flare.query.methods.or", "flare.query.Fn"] },
-  { "name": "flare.query.methods.gt", "size": 603, "imports": ["flare.query.Comparison", "flare.query.methods.or"] },
+  {
+    "name": "flare.query.methods.div",
+    "size": 595,
+    "imports": ["flare.query.methods.or", "flare.query.Arithmetic"]
+  },
+  {
+    "name": "flare.query.methods.eq",
+    "size": 594,
+    "imports": ["flare.query.Comparison", "flare.query.methods.or"]
+  },
+  {
+    "name": "flare.query.methods.fn",
+    "size": 460,
+    "imports": ["flare.query.methods.or", "flare.query.Fn"]
+  },
+  {
+    "name": "flare.query.methods.gt",
+    "size": 603,
+    "imports": ["flare.query.Comparison", "flare.query.methods.or"]
+  },
   {
     "name": "flare.query.methods.gte",
     "size": 625,
     "imports": ["flare.query.Comparison", "flare.query.methods.gt", "flare.query.methods.eq", "flare.query.methods.or"]
   },
-  { "name": "flare.query.methods.iff", "size": 748, "imports": ["flare.query.methods.or", "flare.query.If"] },
-  { "name": "flare.query.methods.isa", "size": 461, "imports": ["flare.query.IsA", "flare.query.methods.or"] },
-  { "name": "flare.query.methods.lt", "size": 597, "imports": ["flare.query.Comparison", "flare.query.methods.or"] },
+  {
+    "name": "flare.query.methods.iff",
+    "size": 748,
+    "imports": ["flare.query.methods.or", "flare.query.If"]
+  },
+  {
+    "name": "flare.query.methods.isa",
+    "size": 461,
+    "imports": ["flare.query.IsA", "flare.query.methods.or"]
+  },
+  {
+    "name": "flare.query.methods.lt",
+    "size": 597,
+    "imports": ["flare.query.Comparison", "flare.query.methods.or"]
+  },
   {
     "name": "flare.query.methods.lte",
     "size": 619,
     "imports": ["flare.query.Comparison", "flare.query.methods.lt", "flare.query.methods.eq", "flare.query.methods.or"]
   },
-  { "name": "flare.query.methods.max", "size": 283, "imports": ["flare.query.Maximum", "flare.query.methods.or"] },
-  { "name": "flare.query.methods.min", "size": 283, "imports": ["flare.query.methods.or"] },
-  { "name": "flare.query.methods.mod", "size": 591, "imports": ["flare.query.methods.or", "flare.query.Arithmetic"] },
+  {
+    "name": "flare.query.methods.max",
+    "size": 283,
+    "imports": ["flare.query.Maximum", "flare.query.methods.or"]
+  },
+  {
+    "name": "flare.query.methods.min",
+    "size": 283,
+    "imports": ["flare.query.methods.or"]
+  },
+  {
+    "name": "flare.query.methods.mod",
+    "size": 591,
+    "imports": ["flare.query.methods.or", "flare.query.Arithmetic"]
+  },
   {
     "name": "flare.query.methods.mul",
     "size": 603,
     "imports": ["flare.query.methods.lt", "flare.query.methods.or", "flare.query.Arithmetic"]
   },
-  { "name": "flare.query.methods.or", "size": 323, "imports": [] },
-  { "name": "flare.query.StringUtil", "size": 4130, "imports": ["flare.query.Fn"] },
-  { "name": "flare.query.Sum", "size": 791, "imports": ["flare.query.Expression", "flare.query.AggregateExpression"] },
-  { "name": "flare.query.Variable", "size": 1124, "imports": ["flare.query.Expression", "flare.util.Property"] },
+  {
+    "name": "flare.query.methods.or",
+    "size": 323,
+    "imports": []
+  },
+  {
+    "name": "flare.query.StringUtil",
+    "size": 4130,
+    "imports": ["flare.query.Fn"]
+  },
+  {
+    "name": "flare.query.Sum",
+    "size": 791,
+    "imports": ["flare.query.Expression", "flare.query.AggregateExpression"]
+  },
+  {
+    "name": "flare.query.Variable",
+    "size": 1124,
+    "imports": ["flare.query.Expression", "flare.util.Property"]
+  },
   {
     "name": "flare.query.Variance",
     "size": 1876,
     "imports": ["flare.query.Expression", "flare.query.AggregateExpression"]
   },
-  { "name": "flare.query.Xor", "size": 1101, "imports": ["flare.query.Expression"] },
-  { "name": "flare.scale.IScaleMap", "size": 2105, "imports": ["flare.scale.Scale"] },
+  {
+    "name": "flare.query.Xor",
+    "size": 1101,
+    "imports": ["flare.query.Expression"]
+  },
+  {
+    "name": "flare.scale.IScaleMap",
+    "size": 2105,
+    "imports": ["flare.scale.Scale"]
+  },
   {
     "name": "flare.scale.LinearScale",
     "size": 1316,
@@ -238,8 +334,16 @@
       "flare.scale.ScaleType"
     ]
   },
-  { "name": "flare.scale.Scale", "size": 4268, "imports": ["flare.scale.ScaleType", "flare.util.Strings"] },
-  { "name": "flare.scale.ScaleType", "size": 1821, "imports": ["flare.scale.Scale"] },
+  {
+    "name": "flare.scale.Scale",
+    "size": 4268,
+    "imports": ["flare.scale.ScaleType", "flare.util.Strings"]
+  },
+  {
+    "name": "flare.scale.ScaleType",
+    "size": 1821,
+    "imports": ["flare.scale.Scale"]
+  },
   {
     "name": "flare.scale.TimeScale",
     "size": 5833,
@@ -250,8 +354,16 @@
     "size": 8258,
     "imports": ["flare.util.IValueProxy", "flare.util.Property", "flare.util.IEvaluable"]
   },
-  { "name": "flare.util.Colors", "size": 10001, "imports": ["flare.util.Filter"] },
-  { "name": "flare.util.Dates", "size": 8217, "imports": ["flare.util.Maths"] },
+  {
+    "name": "flare.util.Colors",
+    "size": 10001,
+    "imports": ["flare.util.Filter"]
+  },
+  {
+    "name": "flare.util.Dates",
+    "size": 8217,
+    "imports": ["flare.util.Maths"]
+  },
   {
     "name": "flare.util.Displays",
     "size": 12555,
@@ -263,40 +375,116 @@
       "flare.util.Sort"
     ]
   },
-  { "name": "flare.util.Filter", "size": 2324, "imports": ["flare.util.IPredicate", "flare.util.Property"] },
-  { "name": "flare.util.Geometry", "size": 10993, "imports": [] },
-  { "name": "flare.util.heap.FibonacciHeap", "size": 9354, "imports": ["flare.util.heap.HeapNode"] },
-  { "name": "flare.util.heap.HeapNode", "size": 1233, "imports": ["flare.util.heap.FibonacciHeap"] },
-  { "name": "flare.util.IEvaluable", "size": 335, "imports": [] },
-  { "name": "flare.util.IPredicate", "size": 383, "imports": [] },
-  { "name": "flare.util.IValueProxy", "size": 874, "imports": [] },
-  { "name": "flare.util.math.DenseMatrix", "size": 3165, "imports": ["flare.util.math.IMatrix"] },
-  { "name": "flare.util.math.IMatrix", "size": 2815, "imports": [] },
-  { "name": "flare.util.math.SparseMatrix", "size": 3366, "imports": ["flare.util.math.IMatrix"] },
-  { "name": "flare.util.Maths", "size": 17705, "imports": ["flare.util.Arrays"] },
-  { "name": "flare.util.Orientation", "size": 1486, "imports": [] },
+  {
+    "name": "flare.util.Filter",
+    "size": 2324,
+    "imports": ["flare.util.IPredicate", "flare.util.Property"]
+  },
+  {
+    "name": "flare.util.Geometry",
+    "size": 10993,
+    "imports": []
+  },
+  {
+    "name": "flare.util.heap.FibonacciHeap",
+    "size": 9354,
+    "imports": ["flare.util.heap.HeapNode"]
+  },
+  {
+    "name": "flare.util.heap.HeapNode",
+    "size": 1233,
+    "imports": ["flare.util.heap.FibonacciHeap"]
+  },
+  {
+    "name": "flare.util.IEvaluable",
+    "size": 335,
+    "imports": []
+  },
+  {
+    "name": "flare.util.IPredicate",
+    "size": 383,
+    "imports": []
+  },
+  {
+    "name": "flare.util.IValueProxy",
+    "size": 874,
+    "imports": []
+  },
+  {
+    "name": "flare.util.math.DenseMatrix",
+    "size": 3165,
+    "imports": ["flare.util.math.IMatrix"]
+  },
+  {
+    "name": "flare.util.math.IMatrix",
+    "size": 2815,
+    "imports": []
+  },
+  {
+    "name": "flare.util.math.SparseMatrix",
+    "size": 3366,
+    "imports": ["flare.util.math.IMatrix"]
+  },
+  {
+    "name": "flare.util.Maths",
+    "size": 17705,
+    "imports": ["flare.util.Arrays"]
+  },
+  {
+    "name": "flare.util.Orientation",
+    "size": 1486,
+    "imports": []
+  },
   {
     "name": "flare.util.palette.ColorPalette",
     "size": 6367,
     "imports": ["flare.util.palette.Palette", "flare.util.Colors"]
   },
-  { "name": "flare.util.palette.Palette", "size": 1229, "imports": [] },
+  {
+    "name": "flare.util.palette.Palette",
+    "size": 1229,
+    "imports": []
+  },
   {
     "name": "flare.util.palette.ShapePalette",
     "size": 2059,
     "imports": ["flare.util.palette.Palette", "flare.util.Shapes"]
   },
-  { "name": "flare.util.palette.SizePalette", "size": 2291, "imports": ["flare.util.palette.Palette"] },
+  {
+    "name": "flare.util.palette.SizePalette",
+    "size": 2291,
+    "imports": ["flare.util.palette.Palette"]
+  },
   {
     "name": "flare.util.Property",
     "size": 5559,
     "imports": ["flare.util.IPredicate", "flare.util.IValueProxy", "flare.util.IEvaluable"]
   },
-  { "name": "flare.util.Shapes", "size": 19118, "imports": ["flare.util.Arrays"] },
-  { "name": "flare.util.Sort", "size": 6887, "imports": ["flare.util.Arrays", "flare.util.Property"] },
-  { "name": "flare.util.Stats", "size": 6557, "imports": ["flare.util.Arrays", "flare.util.Property"] },
-  { "name": "flare.util.Strings", "size": 22026, "imports": ["flare.util.Dates", "flare.util.Property"] },
-  { "name": "flare.vis.axis.Axes", "size": 1302, "imports": ["flare.animate.Transitioner", "flare.vis.Visualization"] },
+  {
+    "name": "flare.util.Shapes",
+    "size": 19118,
+    "imports": ["flare.util.Arrays"]
+  },
+  {
+    "name": "flare.util.Sort",
+    "size": 6887,
+    "imports": ["flare.util.Arrays", "flare.util.Property"]
+  },
+  {
+    "name": "flare.util.Stats",
+    "size": 6557,
+    "imports": ["flare.util.Arrays", "flare.util.Property"]
+  },
+  {
+    "name": "flare.util.Strings",
+    "size": 22026,
+    "imports": ["flare.util.Dates", "flare.util.Property"]
+  },
+  {
+    "name": "flare.vis.axis.Axes",
+    "size": 1302,
+    "imports": ["flare.animate.Transitioner", "flare.vis.Visualization"]
+  },
   {
     "name": "flare.vis.axis.Axis",
     "size": 24593,
@@ -319,7 +507,11 @@
     "size": 652,
     "imports": ["flare.vis.axis.Axis"]
   },
-  { "name": "flare.vis.axis.AxisLabel", "size": 636, "imports": ["flare.vis.axis.Axis", "flare.display.TextSprite"] },
+  {
+    "name": "flare.vis.axis.AxisLabel",
+    "size": 636,
+    "imports": ["flare.vis.axis.Axis", "flare.display.TextSprite"]
+  },
   {
     "name": "flare.vis.axis.CartesianAxes",
     "size": 6703,
@@ -378,7 +570,11 @@
     "size": 4896,
     "imports": ["flare.vis.events.SelectionEvent", "flare.vis.controls.Control"]
   },
-  { "name": "flare.vis.controls.IControl", "size": 763, "imports": ["flare.vis.controls.Control"] },
+  {
+    "name": "flare.vis.controls.IControl",
+    "size": 763,
+    "imports": ["flare.vis.controls.Control"]
+  },
   {
     "name": "flare.vis.controls.PanZoomControl",
     "size": 5222,
@@ -475,7 +671,11 @@
       "flare.vis.data.Data"
     ]
   },
-  { "name": "flare.vis.data.render.ArrowType", "size": 698, "imports": [] },
+  {
+    "name": "flare.vis.data.render.ArrowType",
+    "size": 698,
+    "imports": []
+  },
   {
     "name": "flare.vis.data.render.EdgeRenderer",
     "size": 5569,
@@ -489,7 +689,11 @@
       "flare.vis.data.render.ArrowType"
     ]
   },
-  { "name": "flare.vis.data.render.IRenderer", "size": 353, "imports": ["flare.vis.data.DataSprite"] },
+  {
+    "name": "flare.vis.data.render.IRenderer",
+    "size": 353,
+    "imports": ["flare.vis.data.DataSprite"]
+  },
   {
     "name": "flare.vis.data.render.ShapeRenderer",
     "size": 2247,
@@ -547,13 +751,21 @@
       "flare.vis.data.DataSprite"
     ]
   },
-  { "name": "flare.vis.events.SelectionEvent", "size": 1880, "imports": ["flare.vis.events.DataEvent"] },
+  {
+    "name": "flare.vis.events.SelectionEvent",
+    "size": 1880,
+    "imports": ["flare.vis.events.DataEvent"]
+  },
   {
     "name": "flare.vis.events.TooltipEvent",
     "size": 1701,
     "imports": ["flare.vis.data.EdgeSprite", "flare.vis.data.NodeSprite"]
   },
-  { "name": "flare.vis.events.VisualizationEvent", "size": 1117, "imports": ["flare.animate.Transitioner"] },
+  {
+    "name": "flare.vis.events.VisualizationEvent",
+    "size": 1117,
+    "imports": ["flare.animate.Transitioner"]
+  },
   {
     "name": "flare.vis.legend.Legend",
     "size": 20859,
