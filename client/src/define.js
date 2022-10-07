@@ -4,7 +4,8 @@ const _hierarchy = () => {
     Object.entries(sourceData.data).forEach(([tableName, rows]) => {
       const tableData = { name: tableName, children: [] }
       rows.forEach((row, rowIndex) => {
-        tableData.children.push({ name: `${tableName}#${rowIndex}`, fields: row, imports: [] })
+        const name = row.id === undefined ? `${tableName} #${rowIndex}` : `${tableName} #${row.id}`
+        tableData.children.push({ name, fields: row, imports: [] })
       })
       result.children.push(tableData)
     })
