@@ -8,7 +8,7 @@ module.exports = {
     port: 3200,
   },
   devtool: "source-map",
-  entry: "./src/client/index.ts",
+  entry: path.join(__dirname, "src", "index.ts"),
   mode: process.env.MODE,
   module: {
     rules: [
@@ -28,7 +28,7 @@ module.exports = {
   plugins: [
     new webpack.SourceMapDevToolPlugin({ filename: "[file].map[query]" }),
     new webpack.EnvironmentPlugin({ MODE: process.env.MODE }),
-    new HTMLWebpackPlugin({ template: "public/index.html" }),
+    new HTMLWebpackPlugin({ template: path.join(__dirname, "public", "index.html") }),
   ],
   resolve: {
     alias: {
