@@ -29,13 +29,8 @@ const _bilink = (id) => {
         o[1].incoming.push(o)
       }
     }
+    console.log("root >>", root)
     return root
-  }
-}
-
-const _id = () => {
-  return (node) => {
-    return `${node.parent ? id(node.parent) + "." : ""}${node.data.name}`
   }
 }
 
@@ -114,6 +109,12 @@ const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, col
   }
 
   return svg.node()
+}
+
+const _id = () => {
+  return function id(node) {
+    return `${node.parent ? id(node.parent) + "." : ""}${node.data.name}`
+  }
 }
 
 const _line = (d3) => {
