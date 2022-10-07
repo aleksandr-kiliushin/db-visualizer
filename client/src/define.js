@@ -87,23 +87,15 @@ const _data = async (hierarchy, FileAttachment) => {
 
 const _hierarchy = () => {
   return (sourceData) => {
-    let root
-    const map = new Map()
-    const find = (row) => {
-      const { name } = row
-      if (map.has(name)) return map.get(name)
-      const i = name.lastIndexOf(".")
-      map.set(name, row)
-      if (i >= 0) {
-        find({ name: name.substring(0, i), children: [] }).children.push(row)
-        row.name = name.substring(i + 1)
-      } else {
-        root = row
-      }
-      return row
-    }
-    sourceData.forEach(find)
-    return root
+    const result = { name: "data", children: [] }
+    Object.entries(sourceData.data).forEach(([tableName, rows]) => {
+      const tableData = { name: tableName, children: [] }
+      rows.forEach((row, rowIndex) => {
+        tableData.children.push({ name: `${tableName}#${rowIndex}`, imports: [] })
+      })
+      result.children.push(tableData)
+    })
+    return result
   }
 }
 
