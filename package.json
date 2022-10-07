@@ -1,6 +1,7 @@
 {
   "author": "aleksandr-kiliushin",
   "dependencies": {
+    "@observablehq/runtime": "^4.25.0",
     "d3": "^7.6.1"
   },
   "devDependencies": {

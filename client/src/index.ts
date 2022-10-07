@@ -1,5 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { Inspector, Runtime } from "@observablehq/runtime"
+
 import define from "./define"
-import { Inspector, Library, Runtime } from "./runtime.js"
 
 const runtime = new Runtime()
-const main = runtime.module(define, Inspector.into(document.body))
+runtime.module(define, Inspector.into(document.body))
