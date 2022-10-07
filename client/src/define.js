@@ -86,23 +86,23 @@ const _data = async (hierarchy, FileAttachment) => {
 }
 
 const _hierarchy = () => {
-  return (data) => {
+  return (sourceData) => {
     let root
     const map = new Map()
-    data.forEach(function find(data) {
-      const { name } = data
+    const find = (row) => {
+      const { name } = row
       if (map.has(name)) return map.get(name)
       const i = name.lastIndexOf(".")
-      map.set(name, data)
+      map.set(name, row)
       if (i >= 0) {
-        find({ name: name.substring(0, i), children: [] }).children.push(data)
-        data.name = name.substring(i + 1)
+        find({ name: name.substring(0, i), children: [] }).children.push(row)
+        row.name = name.substring(i + 1)
       } else {
-        root = data
+        root = row
       }
-      return data
-    })
-    console.log("root >>", root)
+      return row
+    }
+    sourceData.forEach(find)
     return root
   }
 }
