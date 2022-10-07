@@ -1,9 +1,3 @@
-const _1 = (md, colorout, colorin) => {
-  return md`# Hierarchical Edge Bundling
-
-This chart shows relationships among classes in a software hierarchy. Hover a class to reveal its imports (<b style="color: ${colorout};">outgoing</b> edges) and classes that import it (<b style="color: ${colorin};">incoming</b> edges).`
-}
-
 const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, colorout) => {
   const root = tree(
     bilink(
@@ -181,7 +175,6 @@ export const define = (runtime, observer) => {
     "FileAttachment",
     runtime.fileAttachments((name) => fileAttachments.get(name))
   )
-  main.variable(observer()).define(["md", "colorout", "colorin"], _1)
   main
     .variable(observer("chart"))
     .define(
