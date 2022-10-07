@@ -9,11 +9,9 @@ interface IDataNode {
   children: (IDataNode | IDataClass)[]
 }
 
-type ISourceData = IDataNode
+type ISomeData = IDataNode
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const sourceData: ISourceData = {
+export const someData: ISomeData = {
   name: "flare",
   children: [
     {
@@ -1444,5 +1442,3 @@ const sourceData: ISourceData = {
     },
   ],
 }
-
-export {}
