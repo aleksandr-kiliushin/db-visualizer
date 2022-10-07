@@ -1,30 +1,30 @@
 [
   {
-    "name": "flare.user.1",
+    "name": "tables.user.1",
     "imports": []
   },
   {
-    "name": "flare.user.2",
+    "name": "tables.user.2",
     "imports": []
   },
   {
-    "name": "flare.board_subject.1",
+    "name": "tables.board_subject.1",
     "imports": []
   },
   {
-    "name": "flare.board_subject.2",
+    "name": "tables.board_subject.2",
     "imports": []
   },
   {
-    "name": "flare.board.1",
+    "name": "tables.board.1",
     "imports": []
   },
   {
-    "name": "flare.board.2",
+    "name": "tables.board.2",
     "imports": []
   },
   {
-    "name": "flare.board.3",
+    "name": "tables.board.3",
     "imports": []
   }
 ]
