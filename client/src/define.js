@@ -86,13 +86,13 @@ const _data = async (hierarchy, FileAttachment) => {
 }
 
 const _hierarchy = () => {
-  return function hierarchy(data, delimiter = ".") {
+  return (data) => {
     let root
     const map = new Map()
     data.forEach(function find(data) {
       const { name } = data
       if (map.has(name)) return map.get(name)
-      const i = name.lastIndexOf(delimiter)
+      const i = name.lastIndexOf(".")
       map.set(name, data)
       if (i >= 0) {
         find({ name: name.substring(0, i), children: [] }).children.push(data)
