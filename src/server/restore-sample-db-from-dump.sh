@@ -6,7 +6,7 @@ psql -U postgres -c "CREATE DATABASE db_visualizer_sample_db ENCODING 'UTF-8';";
 
 
 # Seed the database with sample data.
-lzop -cd /var/app/sample-files/dump.lzo | psql -U postgres db_visualizer_sample_db;
+lzop -cd /var/app/sample-input/dump.lzo | psql -U postgres db_visualizer_sample_db;
 
 
 

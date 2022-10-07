@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require("node:path")
 const HTMLWebpackPlugin = require("html-webpack-plugin")
 const webpack = require("webpack")
 
@@ -32,12 +32,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      "#components": path.resolve(process.cwd(), "src/components"),
-      "#models": path.resolve(process.cwd(), "src/models"),
-      "#src": path.resolve(process.cwd(), "src"),
-      "#styles": path.resolve(process.cwd(), "src/styles"),
-      "#utils": path.resolve(process.cwd(), "src/utils"),
-      "#views": path.resolve(process.cwd(), "src/views"),
+      "#client": path.resolve(process.cwd(), "src/client"),
     },
     extensions: [".js", ".ts"],
   },

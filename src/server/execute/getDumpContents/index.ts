@@ -1,12 +1,12 @@
-const fs = require("fs")
+import { readFile } from "node:fs/promises"
 
 export interface IGetDumpContentsResult {
   createTablesCommands: string[]
   setRelationsCommands: string[]
 }
 
-export const getDumpContents = (dampPath: string): IGetDumpContentsResult => {
-  const dumpCode: string = fs.readFileSync(dampPath, "utf-8")
+export const getDumpContents = async (dampPath: string): Promise<IGetDumpContentsResult> => {
+  const dumpCode = await readFile(dampPath, { encoding: "utf-8" })
   const commands = dumpCode.split("\n\n")
   const createTablesCommands = commands.filter((command) => {
     return command.startsWith("CREATE TABLE") && !command.includes("migrations")

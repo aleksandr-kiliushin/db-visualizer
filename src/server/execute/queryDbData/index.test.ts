@@ -1,5 +1,5 @@
-import { parseDbmlResult } from "#e2e/parseDbmlResult"
-import { queryDbDataResult } from "#e2e/queryDbDataResult"
+import { parseDbmlResult } from "#server/sample-output/parseDbmlResult"
+import { queryDbDataResult } from "#server/sample-output/queryDbDataResult"
 
 import { queryDbData } from "./index"
 

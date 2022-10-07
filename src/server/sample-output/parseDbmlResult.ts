@@ -1,4 +1,4 @@
-import { IParseDbmlResult } from "src/parseDbml"
+import { IParseDbmlResult } from "#server/execute/parseDbml"
 
 export const parseDbmlResult: IParseDbmlResult = {
   tables: {

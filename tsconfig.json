@@ -15,10 +15,8 @@
     "noImplicitAny": true,
     "outDir": "./dist",
     "paths": {
-      "#e2e/*": ["e2e/*"],
-      "#helpers/*": ["src/helpers/*"],
-      "#interfaces/*": ["src/interfaces/*"],
-      "#utils/*": ["src/utils/*"]
+      "#client/*": ["src/client/*"],
+      "#server/*": ["src/server/*"]
     },
     "removeComments": false,
     "resolveJsonModule": true,

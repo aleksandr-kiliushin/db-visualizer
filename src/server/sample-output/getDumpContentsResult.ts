@@ -1,6 +1,6 @@
-import { IGetDumpContentsResult } from "../src/getDumpContents/index"
+import { IGetDumpContentsResult } from "#server/execute/getDumpContents"
 
-export const getDumpsContentsResult: IGetDumpContentsResult = {
+export const getDumpContentsResult: IGetDumpContentsResult = {
   createTablesCommands: [
     `CREATE TABLE public.board (
     id integer NOT NULL,
