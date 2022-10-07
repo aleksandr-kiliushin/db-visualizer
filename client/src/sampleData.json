@@ -1,254 +1,30 @@
 [
   {
-    "name": "flare.animate.Transitioner",
-    "imports": ["flare.util.IValueProxy", "flare.util.Property"]
-  },
-  {
-    "name": "flare.display.RectSprite",
+    "name": "flare.user.1",
     "imports": []
   },
   {
-    "name": "flare.display.TextSprite",
+    "name": "flare.user.2",
     "imports": []
   },
   {
-    "name": "flare.query.AggregateExpression",
+    "name": "flare.board_subject.1",
     "imports": []
   },
   {
-    "name": "flare.query.Arithmetic",
+    "name": "flare.board_subject.2",
     "imports": []
   },
   {
-    "name": "flare.query.Comparison",
+    "name": "flare.board.1",
     "imports": []
   },
   {
-    "name": "flare.scale.Scale",
-    "imports": ["flare.scale.ScaleType"]
-  },
-  {
-    "name": "flare.scale.ScaleType",
-    "imports": ["flare.scale.Scale"]
-  },
-  {
-    "name": "flare.util.Arrays",
-    "imports": ["flare.util.IValueProxy", "flare.util.Property", "flare.util.IEvaluable"]
-  },
-  {
-    "name": "flare.util.Displays",
-    "imports": [
-      "flare.util.IValueProxy",
-      "flare.util.Filter",
-      "flare.util.Property",
-      "flare.util.IEvaluable",
-      "flare.util.Sort"
-    ]
-  },
-  {
-    "name": "flare.util.Filter",
-    "imports": ["flare.util.Property"]
-  },
-  {
-    "name": "flare.util.heap.FibonacciHeap",
-    "imports": ["flare.util.heap.HeapNode"]
-  },
-  {
-    "name": "flare.util.heap.HeapNode",
-    "imports": ["flare.util.heap.FibonacciHeap"]
-  },
-  {
-    "name": "flare.util.IEvaluable",
+    "name": "flare.board.2",
     "imports": []
   },
   {
-    "name": "flare.util.IValueProxy",
+    "name": "flare.board.3",
     "imports": []
-  },
-  {
-    "name": "flare.util.palette.ColorPalette",
-    "imports": ["flare.util.palette.Palette"]
-  },
-  {
-    "name": "flare.util.palette.Palette",
-    "imports": []
-  },
-  {
-    "name": "flare.util.Property",
-    "imports": ["flare.util.IValueProxy", "flare.util.IEvaluable"]
-  },
-  {
-    "name": "flare.util.Shapes",
-    "imports": ["flare.util.Arrays"]
-  },
-  {
-    "name": "flare.util.Sort",
-    "imports": ["flare.util.Arrays", "flare.util.Property"]
-  },
-  {
-    "name": "flare.util.Stats",
-    "imports": ["flare.util.Arrays", "flare.util.Property"]
-  },
-  {
-    "name": "flare.vis.axis.Axes",
-    "imports": ["flare.animate.Transitioner", "flare.vis.Visualization"]
-  },
-  {
-    "name": "flare.vis.axis.Axis",
-    "imports": [
-      "flare.animate.Transitioner",
-      "flare.util.Arrays",
-      "flare.scale.ScaleType",
-      "flare.display.TextSprite",
-      "flare.scale.Scale",
-      "flare.util.Stats",
-      "flare.vis.axis.AxisLabel",
-      "flare.vis.axis.AxisGridLine"
-    ]
-  },
-  {
-    "name": "flare.vis.axis.AxisGridLine",
-    "imports": ["flare.vis.axis.Axis"]
-  },
-  {
-    "name": "flare.vis.axis.AxisLabel",
-    "imports": ["flare.vis.axis.Axis", "flare.display.TextSprite"]
-  },
-  {
-    "name": "flare.vis.axis.CartesianAxes",
-    "imports": [
-      "flare.animate.Transitioner",
-      "flare.display.RectSprite",
-      "flare.vis.axis.Axis",
-      "flare.display.TextSprite",
-      "flare.vis.axis.Axes",
-      "flare.vis.Visualization",
-      "flare.vis.axis.AxisGridLine"
-    ]
-  },
-  {
-    "name": "flare.vis.controls.Control",
-    "imports": ["flare.util.Filter"]
-  },
-  {
-    "name": "flare.vis.data.Data",
-    "imports": [
-      "flare.vis.data.EdgeSprite",
-      "flare.vis.data.NodeSprite",
-      "flare.util.Arrays",
-      "flare.vis.data.DataSprite",
-      "flare.vis.data.Tree",
-      "flare.vis.events.DataEvent",
-      "flare.vis.data.DataList",
-      "flare.util.Sort",
-      "flare.util.Property"
-    ]
-  },
-  {
-    "name": "flare.vis.data.DataList",
-    "imports": [
-      "flare.animate.Transitioner",
-      "flare.vis.data.NodeSprite",
-      "flare.util.Arrays",
-      "flare.vis.data.DataSprite",
-      "flare.vis.data.EdgeSprite",
-      "flare.vis.events.DataEvent",
-      "flare.util.Stats",
-      "flare.util.Sort",
-      "flare.util.Filter",
-      "flare.util.Property",
-      "flare.util.IEvaluable",
-      "flare.vis.data.Data"
-    ]
-  },
-  {
-    "name": "flare.vis.data.DataSprite",
-    "imports": ["flare.vis.data.Data"]
-  },
-  {
-    "name": "flare.vis.data.EdgeSprite",
-    "imports": ["flare.vis.data.DataSprite", "flare.vis.data.NodeSprite", "flare.vis.data.Data"]
-  },
-  {
-    "name": "flare.vis.data.NodeSprite",
-    "imports": [
-      "flare.animate.Transitioner",
-      "flare.util.Arrays",
-      "flare.vis.data.DataSprite",
-      "flare.vis.data.EdgeSprite",
-      "flare.vis.data.Tree",
-      "flare.util.Sort",
-      "flare.util.Filter",
-      "flare.util.IEvaluable",
-      "flare.vis.data.Data"
-    ]
-  },
-  {
-    "name": "flare.vis.data.ScaleBinding",
-    "imports": [
-      "flare.scale.ScaleType",
-      "flare.scale.Scale",
-      "flare.util.Stats",
-      "flare.vis.events.DataEvent",
-      "flare.vis.data.Data"
-    ]
-  },
-  {
-    "name": "flare.vis.data.Tree",
-    "imports": [
-      "flare.vis.data.EdgeSprite",
-      "flare.vis.events.DataEvent",
-      "flare.vis.data.NodeSprite",
-      "flare.vis.data.Data"
-    ]
-  },
-  {
-    "name": "flare.vis.events.DataEvent",
-    "imports": [
-      "flare.vis.data.EdgeSprite",
-      "flare.vis.data.NodeSprite",
-      "flare.vis.data.DataList",
-      "flare.vis.data.DataSprite"
-    ]
-  },
-  {
-    "name": "flare.vis.operator.encoder.Encoder",
-    "imports": [
-      "flare.animate.Transitioner",
-      "flare.vis.data.DataSprite",
-      "flare.vis.operator.Operator",
-      "flare.vis.data.ScaleBinding",
-      "flare.util.palette.Palette",
-      "flare.util.Filter",
-      "flare.util.Property",
-      "flare.vis.data.Data"
-    ]
-  },
-  {
-    "name": "flare.vis.operator.IOperator",
-    "imports": ["flare.animate.Transitioner", "flare.vis.Visualization", "flare.vis.operator.Operator"]
-  },
-  {
-    "name": "flare.vis.operator.Operator",
-    "imports": [
-      "flare.animate.Transitioner",
-      "flare.vis.operator.IOperator",
-      "flare.util.Property",
-      "flare.util.IEvaluable",
-      "flare.vis.Visualization"
-    ]
-  },
-  {
-    "name": "flare.vis.Visualization",
-    "imports": [
-      "flare.animate.Transitioner",
-      "flare.vis.operator.IOperator",
-      "flare.vis.data.Tree",
-      "flare.vis.events.DataEvent",
-      "flare.vis.axis.Axes",
-      "flare.vis.axis.CartesianAxes",
-      "flare.util.Displays",
-      "flare.vis.data.Data"
-    ]
   }
 ]

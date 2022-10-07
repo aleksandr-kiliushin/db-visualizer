@@ -102,6 +102,7 @@ const _hierarchy = () => {
       }
       return data
     })
+    console.log("root >>", root)
     return root
   }
 }
