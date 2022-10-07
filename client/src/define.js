@@ -29,6 +29,9 @@ const _bilink = (id) => {
     for (const d of root.leaves()) {
       d.incoming = []
       d.outgoing = d.data.imports.map((i) => [d, map.get(i)])
+      if (d.data.name === "board #1") {
+        d.outgoing = [[d, map.get("user #2")]]
+      }
     }
     for (const d of root.leaves()) {
       for (const o of d.outgoing) {
