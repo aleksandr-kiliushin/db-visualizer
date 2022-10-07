@@ -1,3 +1,5 @@
+import dbPortrait from "./db-portrait.json"
+
 const _hierarchy = () => {
   return (sourceData) => {
     const result = { name: "data", children: [] }
@@ -28,15 +30,8 @@ const _bilink = (id) => {
     const map = new Map(root.leaves().map((d) => [id(d), d]))
     for (const d of root.leaves()) {
       d.incoming = []
-      d.outgoing = d.data.imports.map((i) => [d, map.get(i)])
-      if (d.data.name === "board #1") {
-        d.outgoing = [[d, map.get("user #2")]]
-      }
-    }
-    for (const d of root.leaves()) {
-      for (const o of d.outgoing) {
-        o[1].incoming.push(o)
-      }
+      d.outgoing = []
+      //   console.log(dbPortrait.schema.relations)
     }
     return root
   }
