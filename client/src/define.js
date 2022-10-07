@@ -8,7 +8,6 @@ const _hierarchy = () => {
       rows.forEach((row, rowIndex) => {
         tableData.children.push({
           fields: row,
-          imports: [],
           name: `${tableName} #${rowIndex + 1}`,
           tableName,
         })
@@ -74,7 +73,7 @@ const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, col
   svg
     .append("g")
     .attr("font-family", "sans-serif")
-    .attr("font-size", 10)
+    .attr("font-size", 13)
     .selectAll("g")
     .data(root.leaves())
     .join("g")
