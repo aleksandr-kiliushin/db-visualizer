@@ -1,3 +1,17 @@
+const _hierarchy = () => {
+  return (sourceData) => {
+    const result = { name: "data", children: [] }
+    Object.entries(sourceData.data).forEach(([tableName, rows]) => {
+      const tableData = { name: tableName, children: [] }
+      rows.forEach((row, rowIndex) => {
+        tableData.children.push({ name: `${tableName}#${rowIndex}`, imports: [] })
+      })
+      result.children.push(tableData)
+    })
+    return result
+  }
+}
+
 // eslint-disable-next-line max-params
 const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, colorout) => {
   const root = tree(
@@ -83,20 +97,6 @@ ${d.incoming.length} incoming`
 
 const _data = async (hierarchy, FileAttachment) => {
   return hierarchy(await FileAttachment("flare.json").json())
-}
-
-const _hierarchy = () => {
-  return (sourceData) => {
-    const result = { name: "data", children: [] }
-    Object.entries(sourceData.data).forEach(([tableName, rows]) => {
-      const tableData = { name: tableName, children: [] }
-      rows.forEach((row, rowIndex) => {
-        tableData.children.push({ name: `${tableName}#${rowIndex}`, imports: [] })
-      })
-      result.children.push(tableData)
-    })
-    return result
-  }
 }
 
 const _bilink = (id) => {
