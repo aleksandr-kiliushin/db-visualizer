@@ -162,7 +162,7 @@ function _d3(require) {
   return require("d3@6")
 }
 
-export default function define(runtime, observer) {
+export function define(runtime, observer) {
   const main = runtime.module()
   function toString() {
     return this.url
