@@ -13,6 +13,10 @@ const _hierarchy = () => {
   }
 }
 
+const _data = async (hierarchy, FileAttachment) => {
+  return hierarchy(await FileAttachment("flare.json").json())
+}
+
 // eslint-disable-next-line max-params
 const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, colorout) => {
   const root = tree(
@@ -88,10 +92,6 @@ const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, col
   }
 
   return svg.node()
-}
-
-const _data = async (hierarchy, FileAttachment) => {
-  return hierarchy(await FileAttachment("flare.json").json())
 }
 
 const _bilink = (id) => {
