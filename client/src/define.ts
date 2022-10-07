@@ -1,10 +1,10 @@
-function _1(md, colorout, colorin) {
+const _1 = (md, colorout, colorin) => {
   return md`# Hierarchical Edge Bundling
 
 This chart shows relationships among classes in a software hierarchy. Hover a class to reveal its imports (<b style="color: ${colorout};">outgoing</b> edges) and classes that import it (<b style="color: ${colorin};">incoming</b> edges).`
 }
 
-function _chart(tree, bilink, d3, data, width, id, colornone, line, colorin, colorout) {
+const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, colorout) => {
   const root = tree(
     bilink(
       d3.hierarchy(data).sort((a, b) => d3.ascending(a.height, b.height) || d3.ascending(a.data.name, b.data.name))
@@ -86,11 +86,11 @@ ${d.incoming.length} incoming`
   return svg.node()
 }
 
-async function _data(hierarchy, FileAttachment) {
+const _data = async (hierarchy, FileAttachment) => {
   return hierarchy(await FileAttachment("flare.json").json())
 }
 
-function _hierarchy() {
+const _hierarchy = () => {
   return function hierarchy(data, delimiter = ".") {
     let root
     const map = new Map()
@@ -111,7 +111,7 @@ function _hierarchy() {
   }
 }
 
-function _bilink(id) {
+const _bilink = (id) => {
   return function bilink(root) {
     const map = new Map(root.leaves().map((d) => [id(d), d]))
     for (const d of root.leaves()) (d.incoming = []), (d.outgoing = d.data.imports.map((i) => [d, map.get(i)]))
@@ -120,33 +120,33 @@ function _bilink(id) {
   }
 }
 
-function _id() {
+const _id = () => {
   return function id(node) {
     return `${node.parent ? id(node.parent) + "." : ""}${node.data.name}`
   }
 }
 
-function _colorin() {
+const _colorin = () => {
   return "#00f"
 }
 
-function _colorout() {
+const _colorout = () => {
   return "#f00"
 }
 
-function _colornone() {
+const _colornone = () => {
   return "#ccc"
 }
 
-function _width() {
+const _width = () => {
   return 954
 }
 
-function _radius(width) {
+const _radius = (width) => {
   return width / 2
 }
 
-function _line(d3) {
+const _line = (d3) => {
   return d3
     .lineRadial()
     .curve(d3.curveBundle.beta(0.85))
@@ -154,15 +154,15 @@ function _line(d3) {
     .angle((d) => d.x)
 }
 
-function _tree(d3, radius) {
+const _tree = (d3, radius) => {
   return d3.cluster().size([2 * Math.PI, radius - 100])
 }
 
-function _d3(require) {
+const _d3 = (require) => {
   return require("d3@6")
 }
 
-export function define(runtime, observer) {
+export const define = (runtime, observer) => {
   const main = runtime.module()
   function toString() {
     return this.url
