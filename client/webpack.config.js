@@ -8,17 +8,8 @@ module.exports = {
     port: 3200,
   },
   devtool: "source-map",
-  entry: path.join(__dirname, "src", "index.ts"),
+  entry: path.join(__dirname, "src", "index.js"),
   mode: process.env.MODE,
-  module: {
-    rules: [
-      {
-        exclude: /node_modules/,
-        test: /\.ts/,
-        use: ["ts-loader"],
-      },
-    ],
-  },
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
@@ -34,6 +25,6 @@ module.exports = {
     alias: {
       "#client": path.resolve(process.cwd(), "client"),
     },
-    extensions: [".js", ".ts"],
+    extensions: [".js"],
   },
 }

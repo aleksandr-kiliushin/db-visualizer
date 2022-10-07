@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-params
 const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, colorout) => {
   const root = tree(
     bilink(
@@ -132,10 +133,6 @@ const _tree = (d3, radius) => {
   return d3.cluster().size([2 * Math.PI, radius - 100])
 }
 
-const _d3 = (require) => {
-  return require("d3@6")
-}
-
 export const define = (runtime, observer) => {
   const main = runtime.module()
   function toString() {
@@ -173,6 +170,6 @@ export const define = (runtime, observer) => {
   main.variable(observer("radius")).define("radius", ["width"], (width) => width / 2)
   main.variable(observer("line")).define("line", ["d3"], _line)
   main.variable(observer("tree")).define("tree", ["d3", "radius"], _tree)
-  main.variable(observer("d3")).define("d3", ["require"], _d3)
+  main.variable(observer("d3")).define("d3", ["require"], (require) => require("d3@6"))
   return main
 }
