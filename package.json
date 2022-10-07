@@ -42,7 +42,6 @@
     "check-types": "tsc --noEmit",
     "client:dev": "MODE=development npx webpack serve",
     "check-types:watch": "tsc --noEmit --watch",
-    "execute": "ts-node ./src/server/execute/index.ts",
     "restore-sample-db-from-dump": "echo \"bash /var/app/restore-sample-db-from-dump.sh\" | docker exec -i db-visualizer-sample-db bash;",
     "launch-sample-db": "docker-compose -f ./src/server/compose.dev.yml up",
     "lint": "eslint \"**/!(migrations)/*.{js,ts}\" --max-warnings=0",

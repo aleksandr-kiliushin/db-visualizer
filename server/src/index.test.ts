@@ -8,7 +8,7 @@ describe("execute", () => {
     const dumpPath = join(__dirname, "..", "sample-input", "dump.sql")
     await execute({ dumpPath })
 
-    const actualFileContents = await readFile(join(__dirname, "..", "..", "..", "dist", "db-portrait.json"), {
+    const actualFileContents = await readFile(join(__dirname, "..", "..", "dist", "db-portrait.json"), {
       encoding: "utf-8",
     })
     const expectedFileContents = await readFile(join(__dirname, "..", "sample-output", "db-portrait.json"), {

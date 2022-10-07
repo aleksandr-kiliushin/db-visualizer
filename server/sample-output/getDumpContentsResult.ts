@@ -1,4 +1,4 @@
-import { IGetDumpContentsResult } from "#server/execute/getDumpContents"
+import { IGetDumpContentsResult } from "#server/src/getDumpContents"
 
 export const getDumpContentsResult: IGetDumpContentsResult = {
   createTablesCommands: [

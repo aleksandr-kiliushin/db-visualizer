@@ -1,6 +1,6 @@
 import { importer } from "@dbml/core"
 
-import { IGetDumpContentsResult } from "#server/execute/getDumpContents"
+import { IGetDumpContentsResult } from "#server/src/getDumpContents"
 
 export const convertDumpContentsToDbmlCode = (dumpsContents: IGetDumpContentsResult): string => {
   const createTablesCommandsConcatenated = dumpsContents.createTablesCommands.join("\n\n")

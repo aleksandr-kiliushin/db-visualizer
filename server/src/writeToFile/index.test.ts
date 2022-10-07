@@ -9,7 +9,7 @@ import { writeToFile } from "./index"
 describe("writeToFile", () => {
   it("works", async () => {
     await writeToFile({ schema: parseDbmlResult, data: queryDbDataResult })
-    const actualFileContents = await readFile(join(__dirname, "..", "..", "..", "..", "dist", "db-portrait.json"), {
+    const actualFileContents = await readFile(join(__dirname, "..", "..", "..", "dist", "db-portrait.json"), {
       encoding: "utf-8",
     })
     const expectedFileContents = await readFile(join(__dirname, "..", "..", "sample-output", "db-portrait.json"), {

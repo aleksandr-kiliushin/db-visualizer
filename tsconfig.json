@@ -15,8 +15,8 @@
     "noImplicitAny": true,
     "outDir": "./dist",
     "paths": {
-      "#client/*": ["src/client/*"],
-      "#server/*": ["src/server/*"]
+      "#client/*": ["client/*"],
+      "#server/*": ["server/*"]
     },
     "removeComments": false,
     "resolveJsonModule": true,
@@ -29,5 +29,5 @@
     "target": "es6"
   },
   "files": ["declarations/tests.d.ts"],
-  "include": ["src", "e2e", ".eslintrc.js", "jest.config.ts", "jest.setup.ts", "webpack.config.js"]
+  "include": ["client", "server", ".eslintrc.js", "jest.config.ts", "jest.setup.ts", "webpack.config.js"]
 }
