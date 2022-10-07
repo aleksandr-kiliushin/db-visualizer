@@ -34,21 +34,24 @@ const buildHierarchy = (data: ISourceData) => {
   const DELIMITER = "."
   let root
   const map = new Map()
-  data.forEach(function find(data) {
-    const { name } = data
-    if (map.has(name)) return map.get(name)
-    const i = name.lastIndexOf(DELIMITER)
-    map.set(name, data)
-    if (i >= 0) {
+  const find = (dataClass: IDataClass) => {
+    if (map.has(dataClass.name)) return map.get(dataClass.name)
+    const lastIndexOfDelimiterInDataClassName = dataClass.name.lastIndexOf(DELIMITER)
+    map.set(dataClass.name, dataClass)
+    if (lastIndexOfDelimiterInDataClassName === -1) {
+      root = data
+      return
+    }
+
+    find({
+      name: dataClass.name.substring(0, lastIndexOfDelimiterInDataClassName),
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      find({ name: name.substring(0, i), children: [] }).children.push(data)
-      data.name = name.substring(i + 1)
-    } else {
-      root = data
-    }
-    return data
-  })
+      children: [],
+    }).children.push(dataClass)
+    dataClass.name = dataClass.name.substring(lastIndexOfDelimiterInDataClassName + 1)
+  }
+  data.forEach(find)
   return root
 }
 

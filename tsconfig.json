@@ -11,7 +11,7 @@
     "moduleResolution": "Node",
     "noUnusedLocals": true,
     "noUnusedParameters": false,
-    "noEmitOnError": true,
+    "noEmitOnError": false,
     "noImplicitAny": true,
     "outDir": "./dist",
     "paths": {
