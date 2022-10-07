@@ -17,6 +17,22 @@ const _data = async (hierarchy, FileAttachment) => {
   return hierarchy(await FileAttachment("flare.json").json())
 }
 
+const _bilink = (id) => {
+  return (root) => {
+    const map = new Map(root.leaves().map((d) => [id(d), d]))
+    for (const d of root.leaves()) {
+      d.incoming = []
+      d.outgoing = d.data.imports.map((i) => [d, map.get(i)])
+    }
+    for (const d of root.leaves()) {
+      for (const o of d.outgoing) {
+        o[1].incoming.push(o)
+      }
+    }
+    return root
+  }
+}
+
 // eslint-disable-next-line max-params
 const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, colorout) => {
   const root = tree(
@@ -92,22 +108,6 @@ const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, col
   }
 
   return svg.node()
-}
-
-const _bilink = (id) => {
-  return (root) => {
-    const map = new Map(root.leaves().map((d) => [id(d), d]))
-    for (const d of root.leaves()) {
-      d.incoming = []
-      d.outgoing = d.data.imports.map((i) => [d, map.get(i)])
-    }
-    for (const d of root.leaves()) {
-      for (const o of d.outgoing) {
-        o[1].incoming.push(o)
-      }
-    }
-    return root
-  }
 }
 
 const _id = () => {
