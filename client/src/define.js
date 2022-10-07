@@ -6,8 +6,12 @@ const _hierarchy = () => {
     Object.entries(sourceData.data).forEach(([tableName, rows]) => {
       const tableData = { name: tableName, children: [] }
       rows.forEach((row, rowIndex) => {
-        const name = row.id === undefined ? `${tableName} #${rowIndex}` : `${tableName} #${row.id}`
-        tableData.children.push({ name, fields: row, imports: [] })
+        tableData.children.push({
+          fields: row,
+          imports: [],
+          name: `${tableName} #${rowIndex}`,
+          tableName,
+        })
       })
       result.children.push(tableData)
     })
@@ -27,11 +31,25 @@ const _id = () => {
 
 const _bilink = (id) => {
   return (root) => {
-    const map = new Map(root.leaves().map((d) => [id(d), d]))
     for (const d of root.leaves()) {
       d.incoming = []
       d.outgoing = []
-      //   console.log(dbPortrait.schema.relations)
+    }
+    for (const d of root.leaves()) {
+      const relationsOfThisLeaf = dbPortrait.schema.relations.filter(([relationFrom]) => {
+        return relationFrom.tableName === d.data.tableName
+      })
+      for (const relation of relationsOfThisLeaf) {
+        const [relationFrom, relationTo] = relation
+        const relatedLeaf = root
+          .leaves()
+          .filter((leave) => leave.data.tableName === relationTo.tableName)
+          .find((leave) => d.data.fields[relationFrom.columnName] === leave.data.fields[relationTo.columnName])
+        if (relatedLeaf !== undefined) {
+          d.incoming.push([d, relatedLeaf])
+          d.outgoing.push([d, relatedLeaf])
+        }
+      }
     }
     return root
   }
