@@ -4,9 +4,7 @@
 // const colorout = "#f00"
 // const colornone = "#ccc"
 // const width = 954
-const radius = 477
-
-console.log("radius >>", radius)
+// const radius = 477
 
 // const line = d3
 //   .lineRadial()
