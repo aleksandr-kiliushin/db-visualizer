@@ -35,29 +35,18 @@ const _bilink = (id) => {
       leaf.outgoing = []
     }
     for (const leaf of root.leaves()) {
-      // console.group()
-      // console.log("leaf data >>", JSON.stringify(leaf.data, null, 2))
       const relationsOfThisLeaf = dbPortrait.schema.relations.filter(([relationFrom]) => {
         return relationFrom.tableName === leaf.data.tableName
       })
-      // console.log("relationsOfThisLeaf >>", JSON.stringify(relationsOfThisLeaf, null, 2))
-      // console.groupEnd()
       for (const relation of relationsOfThisLeaf) {
         const [relationFrom, relationTo] = relation
-        const relatedLeaf = root
+        const relatedLeaves = root
           .leaves()
           .filter((leave) => leave.data.tableName === relationTo.tableName)
-          .find((leave) => leaf.data.fields[relationFrom.columnName] === leave.data.fields[relationTo.columnName])
-        if (relatedLeaf !== undefined) {
+          .filter((leave) => leaf.data.fields[relationFrom.columnName] === leave.data.fields[relationTo.columnName])
+        for (const relatedLeaf of relatedLeaves) {
           leaf.outgoing.push([leaf, relatedLeaf])
         }
-        //  else {
-        // console.group()
-        // console.log("relatedLeaf === undefined")
-        // console.log("leaf >>", leaf)
-        // console.log("relatedLeaf >>", relatedLeaf)
-        // console.groupEnd()
-        // }
       }
     }
     for (const leaf of root.leaves()) {
