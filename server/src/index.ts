@@ -1,3 +1,5 @@
+import { join } from "node:path"
+
 import { convertDumpContentsToDbmlCode } from "./convertDumpContentsToDbmlCode"
 import { getDumpContents } from "./getDumpContents"
 import { parseDbml } from "./parseDbml"
@@ -12,3 +14,5 @@ export const execute = async ({ dumpPath }: { dumpPath: string }) => {
   const dbData = await queryDbData({ tablesNames })
   await writeToFile({ schema: parsedDbmlCode, data: dbData })
 }
+
+execute({ dumpPath: join(__dirname, "..", "..", "your-files", "dump.sql") })

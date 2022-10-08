@@ -38,8 +38,9 @@
   "private": false,
   "scripts": {
     "check-types": "tsc --noEmit",
-    "dev:client": "MODE=development npx webpack serve --config ./client/webpack.config.js",
     "check-types:watch": "tsc --noEmit --watch",
+    "dev:client": "MODE=development npx webpack serve --config ./client/webpack.config.js",
+    "generate-db-portrait": "ts-node ./server/src/index.ts",
     "restore-sample-db-from-dump": "echo \"bash /var/app/restore-sample-db-from-dump.sh\" | docker exec -i db-visualizer-sample-db bash;",
     "launch-sample-db": "docker-compose -f ./server/compose.dev.yml up",
     "lint": "eslint \"**/*.{js,ts}\" --max-warnings=0",
