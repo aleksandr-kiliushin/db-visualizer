@@ -54,10 +54,10 @@ const _bilink = (id) => {
           console.groupEnd()
         }
       }
-      for (const leaf of root.leaves()) {
-        for (const outgoing of leaf.outgoing) {
-          outgoing[1].incoming.push(outgoing)
-        }
+    }
+    for (const leaf of root.leaves()) {
+      for (const outgoing of leaf.outgoing) {
+        outgoing[1].incoming.push(outgoing)
       }
     }
     return root
