@@ -3,4 +3,4 @@
 /coverage
 /dist
 /node_modules
-/your-files
+/your-files/dump.sql

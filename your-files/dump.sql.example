@@ -1,0 +1,955 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.4 (Debian 14.4-1.pgdg110+1)
+-- Dumped by pg_dump version 14.4 (Debian 14.4-1.pgdg110+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: btree_gin; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS btree_gin WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION btree_gin; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION btree_gin IS 'support for indexing common datatypes in GIN';
+
+
+--
+-- Name: btree_gist; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS btree_gist WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION btree_gist; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION btree_gist IS 'support for indexing common datatypes in GiST';
+
+
+--
+-- Name: citext; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS citext WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION citext; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION citext IS 'data type for case-insensitive character strings';
+
+
+--
+-- Name: cube; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS cube WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION cube; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION cube IS 'data type for multidimensional cubes';
+
+
+--
+-- Name: dblink; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS dblink WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION dblink; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION dblink IS 'connect to other PostgreSQL databases from within a database';
+
+
+--
+-- Name: dict_int; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS dict_int WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION dict_int; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION dict_int IS 'text search dictionary template for integers';
+
+
+--
+-- Name: dict_xsyn; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS dict_xsyn WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION dict_xsyn; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION dict_xsyn IS 'text search dictionary template for extended synonym processing';
+
+
+--
+-- Name: earthdistance; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS earthdistance WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION earthdistance; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION earthdistance IS 'calculate great-circle distances on the surface of the Earth';
+
+
+--
+-- Name: fuzzystrmatch; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS fuzzystrmatch WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION fuzzystrmatch; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION fuzzystrmatch IS 'determine similarities and distance between strings';
+
+
+--
+-- Name: hstore; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS hstore WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION hstore; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION hstore IS 'data type for storing sets of (key, value) pairs';
+
+
+--
+-- Name: intarray; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS intarray WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION intarray; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION intarray IS 'functions, operators, and index support for 1-D arrays of integers';
+
+
+--
+-- Name: ltree; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS ltree WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION ltree; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION ltree IS 'data type for hierarchical tree-like structures';
+
+
+--
+-- Name: pg_stat_statements; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS pg_stat_statements WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION pg_stat_statements; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION pg_stat_statements IS 'track planning and execution statistics of all SQL statements executed';
+
+
+--
+-- Name: pg_trgm; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION pg_trgm; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION pg_trgm IS 'text similarity measurement and index searching based on trigrams';
+
+
+--
+-- Name: pgcrypto; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION pgcrypto; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION pgcrypto IS 'cryptographic functions';
+
+
+--
+-- Name: pgrowlocks; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS pgrowlocks WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION pgrowlocks; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION pgrowlocks IS 'show row-level locking information';
+
+
+--
+-- Name: pgstattuple; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS pgstattuple WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION pgstattuple; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION pgstattuple IS 'show tuple-level statistics';
+
+
+--
+-- Name: tablefunc; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS tablefunc WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION tablefunc; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION tablefunc IS 'functions that manipulate whole tables, including crosstab';
+
+
+--
+-- Name: unaccent; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS unaccent WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION unaccent; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION unaccent IS 'text search dictionary that removes accents';
+
+
+--
+-- Name: uuid-ossp; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION "uuid-ossp"; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION "uuid-ossp" IS 'generate universally unique identifiers (UUIDs)';
+
+
+--
+-- Name: xml2; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS xml2 WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION xml2; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION xml2 IS 'XPath querying and XSLT';
+
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: board; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.board (
+    id integer NOT NULL,
+    name character varying NOT NULL,
+    "subjectId" integer
+);
+
+
+ALTER TABLE public.board OWNER TO postgres;
+
+--
+-- Name: board_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.board_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.board_id_seq OWNER TO postgres;
+
+--
+-- Name: board_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.board_id_seq OWNED BY public.board.id;
+
+
+--
+-- Name: board_subject; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.board_subject (
+    id integer NOT NULL,
+    name character varying NOT NULL
+);
+
+
+ALTER TABLE public.board_subject OWNER TO postgres;
+
+--
+-- Name: board_subject_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.board_subject_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.board_subject_id_seq OWNER TO postgres;
+
+--
+-- Name: board_subject_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.board_subject_id_seq OWNED BY public.board_subject.id;
+
+
+--
+-- Name: budgeting_category; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.budgeting_category (
+    id integer NOT NULL,
+    name character varying NOT NULL,
+    "typeId" integer,
+    "boardId" integer
+);
+
+
+ALTER TABLE public.budgeting_category OWNER TO postgres;
+
+--
+-- Name: budgeting_category_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.budgeting_category_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.budgeting_category_id_seq OWNER TO postgres;
+
+--
+-- Name: budgeting_category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.budgeting_category_id_seq OWNED BY public.budgeting_category.id;
+
+
+--
+-- Name: budgeting_category_type; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.budgeting_category_type (
+    id integer NOT NULL,
+    name character varying NOT NULL
+);
+
+
+ALTER TABLE public.budgeting_category_type OWNER TO postgres;
+
+--
+-- Name: budgeting_category_type_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.budgeting_category_type_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.budgeting_category_type_id_seq OWNER TO postgres;
+
+--
+-- Name: budgeting_category_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.budgeting_category_type_id_seq OWNED BY public.budgeting_category_type.id;
+
+
+--
+-- Name: budgeting_record; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.budgeting_record (
+    amount integer NOT NULL,
+    date character varying NOT NULL,
+    id integer NOT NULL,
+    "isTrashed" boolean DEFAULT false NOT NULL,
+    "categoryId" integer
+);
+
+
+ALTER TABLE public.budgeting_record OWNER TO postgres;
+
+--
+-- Name: budgeting_record_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.budgeting_record_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.budgeting_record_id_seq OWNER TO postgres;
+
+--
+-- Name: budgeting_record_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.budgeting_record_id_seq OWNED BY public.budgeting_record.id;
+
+
+--
+-- Name: migrations; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.migrations (
+    id integer NOT NULL,
+    "timestamp" bigint NOT NULL,
+    name character varying NOT NULL
+);
+
+
+ALTER TABLE public.migrations OWNER TO postgres;
+
+--
+-- Name: migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.migrations_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.migrations_id_seq OWNER TO postgres;
+
+--
+-- Name: migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.migrations_id_seq OWNED BY public.migrations.id;
+
+
+--
+-- Name: user; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."user" (
+    id integer NOT NULL,
+    username character varying NOT NULL,
+    password character varying NOT NULL
+);
+
+
+ALTER TABLE public."user" OWNER TO postgres;
+
+--
+-- Name: user_administrated_boards_board; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.user_administrated_boards_board (
+    "userId" integer NOT NULL,
+    "boardId" integer NOT NULL
+);
+
+
+ALTER TABLE public.user_administrated_boards_board OWNER TO postgres;
+
+--
+-- Name: user_boards_board; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.user_boards_board (
+    "userId" integer NOT NULL,
+    "boardId" integer NOT NULL
+);
+
+
+ALTER TABLE public.user_boards_board OWNER TO postgres;
+
+--
+-- Name: user_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.user_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.user_id_seq OWNER TO postgres;
+
+--
+-- Name: user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.user_id_seq OWNED BY public."user".id;
+
+
+--
+-- Name: board id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.board ALTER COLUMN id SET DEFAULT nextval('public.board_id_seq'::regclass);
+
+
+--
+-- Name: board_subject id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.board_subject ALTER COLUMN id SET DEFAULT nextval('public.board_subject_id_seq'::regclass);
+
+
+--
+-- Name: budgeting_category id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.budgeting_category ALTER COLUMN id SET DEFAULT nextval('public.budgeting_category_id_seq'::regclass);
+
+
+--
+-- Name: budgeting_category_type id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.budgeting_category_type ALTER COLUMN id SET DEFAULT nextval('public.budgeting_category_type_id_seq'::regclass);
+
+
+--
+-- Name: budgeting_record id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.budgeting_record ALTER COLUMN id SET DEFAULT nextval('public.budgeting_record_id_seq'::regclass);
+
+
+--
+-- Name: migrations id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.migrations ALTER COLUMN id SET DEFAULT nextval('public.migrations_id_seq'::regclass);
+
+
+--
+-- Name: user id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."user" ALTER COLUMN id SET DEFAULT nextval('public.user_id_seq'::regclass);
+
+
+--
+-- Data for Name: board; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.board (id, name, "subjectId") FROM stdin;
+1	clever-budgetiers	1
+2	mega-economists	1
+3	beautiful-sportsmen	2
+\.
+
+
+--
+-- Data for Name: board_subject; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.board_subject (id, name) FROM stdin;
+1	budgeting
+2	habits
+\.
+
+
+--
+-- Data for Name: budgeting_category; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.budgeting_category (id, name, "typeId", "boardId") FROM stdin;
+1	clothes	1	1
+2	education	1	1
+3	gifts	1	2
+4	gifts	2	2
+5	salary	2	2
+\.
+
+
+--
+-- Data for Name: budgeting_category_type; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.budgeting_category_type (id, name) FROM stdin;
+1	expense
+2	income
+\.
+
+
+--
+-- Data for Name: budgeting_record; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.budgeting_record (amount, date, id, "isTrashed", "categoryId") FROM stdin;
+100	2022-08-01	1	t	1
+400	2022-08-01	2	t	2
+25	2022-08-01	3	f	2
+30	2022-08-02	4	f	3
+10	2022-08-02	5	f	3
+230	2022-08-03	6	f	4
+666	2022-08-10	7	t	5
+\.
+
+
+--
+-- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.migrations (id, "timestamp", name) FROM stdin;
+1	1659879262593	Init1659879262593
+2	1664731276878	AddBoards1664731276878
+3	1664909097677	RenameFinancesToBudgeting1664909097677
+\.
+
+
+--
+-- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."user" (id, username, password) FROM stdin;
+1	john-doe	8bd309ffba83c3db9a53142b052468007b
+2	jessica-stark	8bd912e2fe84cd93c457142a1d7e77136c3bc954f183
+\.
+
+
+--
+-- Data for Name: user_administrated_boards_board; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.user_administrated_boards_board ("userId", "boardId") FROM stdin;
+1	1
+2	2
+2	3
+\.
+
+
+--
+-- Data for Name: user_boards_board; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.user_boards_board ("userId", "boardId") FROM stdin;
+1	1
+2	1
+2	2
+2	3
+\.
+
+
+--
+-- Name: board_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.board_id_seq', 3, true);
+
+
+--
+-- Name: board_subject_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.board_subject_id_seq', 2, true);
+
+
+--
+-- Name: budgeting_category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.budgeting_category_id_seq', 5, true);
+
+
+--
+-- Name: budgeting_category_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.budgeting_category_type_id_seq', 2, true);
+
+
+--
+-- Name: budgeting_record_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.budgeting_record_id_seq', 7, true);
+
+
+--
+-- Name: migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.migrations_id_seq', 3, true);
+
+
+--
+-- Name: user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.user_id_seq', 2, true);
+
+
+--
+-- Name: user_administrated_boards_board PK_0a2810eee8dad0916bb17aff68e; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_administrated_boards_board
+    ADD CONSTRAINT "PK_0a2810eee8dad0916bb17aff68e" PRIMARY KEY ("userId", "boardId");
+
+
+--
+-- Name: budgeting_category PK_512af380143c8ff1fb30f04b5c5; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.budgeting_category
+    ADD CONSTRAINT "PK_512af380143c8ff1fb30f04b5c5" PRIMARY KEY (id);
+
+
+--
+-- Name: board_subject PK_573d3d2cd4106c33293245bb111; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.board_subject
+    ADD CONSTRAINT "PK_573d3d2cd4106c33293245bb111" PRIMARY KEY (id);
+
+
+--
+-- Name: board PK_865a0f2e22c140d261b1df80eb1; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.board
+    ADD CONSTRAINT "PK_865a0f2e22c140d261b1df80eb1" PRIMARY KEY (id);
+
+
+--
+-- Name: user_boards_board PK_878ad615f92edb780a5c45fd9d0; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_boards_board
+    ADD CONSTRAINT "PK_878ad615f92edb780a5c45fd9d0" PRIMARY KEY ("userId", "boardId");
+
+
+--
+-- Name: migrations PK_8c82d7f526340ab734260ea46be; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.migrations
+    ADD CONSTRAINT "PK_8c82d7f526340ab734260ea46be" PRIMARY KEY (id);
+
+
+--
+-- Name: budgeting_record PK_b1e9b3884f829a2607896588590; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.budgeting_record
+    ADD CONSTRAINT "PK_b1e9b3884f829a2607896588590" PRIMARY KEY (id);
+
+
+--
+-- Name: budgeting_category_type PK_c3573df92b97320c973702810cc; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.budgeting_category_type
+    ADD CONSTRAINT "PK_c3573df92b97320c973702810cc" PRIMARY KEY (id);
+
+
+--
+-- Name: user PK_cace4a159ff9f2512dd42373760; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."user"
+    ADD CONSTRAINT "PK_cace4a159ff9f2512dd42373760" PRIMARY KEY (id);
+
+
+--
+-- Name: IDX_83146940d4e22ed4b9e82d9443; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX "IDX_83146940d4e22ed4b9e82d9443" ON public.user_administrated_boards_board USING btree ("userId");
+
+
+--
+-- Name: IDX_a1e78b2ee3d6f5b91b4878bbc8; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX "IDX_a1e78b2ee3d6f5b91b4878bbc8" ON public.user_administrated_boards_board USING btree ("boardId");
+
+
+--
+-- Name: IDX_d92c98138733350c58be167b78; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX "IDX_d92c98138733350c58be167b78" ON public.user_boards_board USING btree ("userId");
+
+
+--
+-- Name: IDX_ec241c244980d39996b501f397; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX "IDX_ec241c244980d39996b501f397" ON public.user_boards_board USING btree ("boardId");
+
+
+--
+-- Name: budgeting_category FK_269bc39bfebdea7414b389b6c65; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.budgeting_category
+    ADD CONSTRAINT "FK_269bc39bfebdea7414b389b6c65" FOREIGN KEY ("boardId") REFERENCES public.board(id) ON DELETE CASCADE;
+
+
+--
+-- Name: user_administrated_boards_board FK_83146940d4e22ed4b9e82d94435; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_administrated_boards_board
+    ADD CONSTRAINT "FK_83146940d4e22ed4b9e82d94435" FOREIGN KEY ("userId") REFERENCES public."user"(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: budgeting_category FK_974b4481b02a5abab70d29c01bd; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.budgeting_category
+    ADD CONSTRAINT "FK_974b4481b02a5abab70d29c01bd" FOREIGN KEY ("typeId") REFERENCES public.budgeting_category_type(id);
+
+
+--
+-- Name: user_administrated_boards_board FK_a1e78b2ee3d6f5b91b4878bbc80; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_administrated_boards_board
+    ADD CONSTRAINT "FK_a1e78b2ee3d6f5b91b4878bbc80" FOREIGN KEY ("boardId") REFERENCES public.board(id) ON DELETE CASCADE;
+
+
+--
+-- Name: board FK_c3883bef3207497274cacae9ccc; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.board
+    ADD CONSTRAINT "FK_c3883bef3207497274cacae9ccc" FOREIGN KEY ("subjectId") REFERENCES public.board_subject(id);
+
+
+--
+-- Name: user_boards_board FK_d92c98138733350c58be167b78c; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_boards_board
+    ADD CONSTRAINT "FK_d92c98138733350c58be167b78c" FOREIGN KEY ("userId") REFERENCES public."user"(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: user_boards_board FK_ec241c244980d39996b501f3970; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_boards_board
+    ADD CONSTRAINT "FK_ec241c244980d39996b501f3970" FOREIGN KEY ("boardId") REFERENCES public.board(id) ON DELETE CASCADE;
+
+
+--
+-- Name: budgeting_record FK_f013431c4ebbfccbb8976107236; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.budgeting_record
+    ADD CONSTRAINT "FK_f013431c4ebbfccbb8976107236" FOREIGN KEY ("categoryId") REFERENCES public.budgeting_category(id) ON DELETE CASCADE;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
