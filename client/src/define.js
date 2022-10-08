@@ -1,4 +1,5 @@
 import dbPortrait from "../../dist/db-portrait.json"
+import { rowNameDefinitions } from "../../your-files/rowNameDefinitions"
 
 const _hierarchy = () => {
   return (sourceData) => {
@@ -6,11 +7,12 @@ const _hierarchy = () => {
     Object.entries(sourceData.data).forEach(([tableName, rows]) => {
       const tableData = { name: tableName, children: [] }
       rows.forEach((row, rowIndex) => {
-        tableData.children.push({
-          fields: row,
-          name: `${tableName} #${rowIndex + 1}`,
-          tableName,
-        })
+        const name =
+          rowNameDefinitions[tableName] === undefined
+            ? `${tableName} #${rowIndex + 1}`
+            : rowNameDefinitions[tableName](row)
+
+        tableData.children.push({ fields: row, name, tableName })
       })
       result.children.push(tableData)
     })

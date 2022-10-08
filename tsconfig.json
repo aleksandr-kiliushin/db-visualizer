@@ -29,5 +29,5 @@
     "target": "es6"
   },
   "files": ["declarations/tests.d.ts"],
-  "include": ["client", "server", ".eslintrc.js", "jest.config.ts", "jest.setup.ts"]
+  "include": ["client", "server", ".eslintrc.js", "jest.config.ts", "jest.setup.ts", "your-files"]
 }
