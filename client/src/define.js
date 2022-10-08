@@ -45,8 +45,7 @@ const _bilink = (id) => {
           .filter((leave) => leave.data.tableName === relationTo.tableName)
           .find((leave) => d.data.fields[relationFrom.columnName] === leave.data.fields[relationTo.columnName])
         if (relatedLeaf !== undefined) {
-          d.incoming.push([d, relatedLeaf])
-          d.outgoing.push([relatedLeaf, d])
+          d.outgoing.push([d, relatedLeaf])
         } else {
           console.group()
           console.log("relatedLeaf === undefined")
@@ -55,6 +54,11 @@ const _bilink = (id) => {
           console.groupEnd()
         }
       }
+      // for (const leaf of root.leaves()) {
+      //   for (const outgoing of leaf.outgoing) {
+      //     outgoing[1].incoming.push(outgoing)
+      //   }
+      // }
     }
     return root
   }
