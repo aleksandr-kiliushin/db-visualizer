@@ -19,7 +19,7 @@ const _hierarchy = () => {
 }
 
 const _data = async (hierarchy, FileAttachment) => {
-  return hierarchy(await FileAttachment("flare.json").json())
+  return hierarchy(await FileAttachment("db-portrait").json())
 }
 
 const _id = () => {
@@ -154,7 +154,7 @@ export const define = (runtime, observer) => {
   }
   const fileAttachments = new Map([
     [
-      "flare.json",
+      "db-portrait",
       {
         url: new URL("./db-portrait.json", import.meta.url),
         mimeType: null,
