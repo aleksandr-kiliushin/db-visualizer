@@ -9,9 +9,79 @@
       "board_subject": {
         "id": "integer [not null]",
         "name": "\"character varying\" [not null]"
+      },
+      "budgeting_category": {
+        "id": "integer [not null]",
+        "name": "\"character varying\" [not null]",
+        "typeId": "integer",
+        "boardId": "integer"
+      },
+      "budgeting_category_type": {
+        "id": "integer [not null]",
+        "name": "\"character varying\" [not null]"
+      },
+      "budgeting_record": {
+        "amount": "integer [not null]",
+        "date": "\"character varying\" [not null]",
+        "id": "integer [not null]",
+        "isTrashed": "boolean [not null, default: false]",
+        "categoryId": "integer"
+      },
+      "user": {
+        "id": "integer [not null]",
+        "username": "\"character varying\" [not null]",
+        "password": "\"character varying\" [not null]"
+      },
+      "user_administrated_boards_board": {
+        "userId": "integer [not null]",
+        "boardId": "integer [not null]"
+      },
+      "user_boards_board": {
+        "userId": "integer [not null]",
+        "boardId": "integer [not null]"
       }
     },
     "relations": [
+      [
+        {
+          "tableName": "board",
+          "columnName": "id"
+        },
+        {
+          "tableName": "budgeting_category",
+          "columnName": "boardId"
+        }
+      ],
+      [
+        {
+          "tableName": "user",
+          "columnName": "id"
+        },
+        {
+          "tableName": "user_administrated_boards_board",
+          "columnName": "userId"
+        }
+      ],
+      [
+        {
+          "tableName": "budgeting_category_type",
+          "columnName": "id"
+        },
+        {
+          "tableName": "budgeting_category",
+          "columnName": "typeId"
+        }
+      ],
+      [
+        {
+          "tableName": "board",
+          "columnName": "id"
+        },
+        {
+          "tableName": "user_administrated_boards_board",
+          "columnName": "boardId"
+        }
+      ],
       [
         {
           "tableName": "board_subject",
@@ -20,6 +90,36 @@
         {
           "tableName": "board",
           "columnName": "subjectId"
+        }
+      ],
+      [
+        {
+          "tableName": "user",
+          "columnName": "id"
+        },
+        {
+          "tableName": "user_boards_board",
+          "columnName": "userId"
+        }
+      ],
+      [
+        {
+          "tableName": "board",
+          "columnName": "id"
+        },
+        {
+          "tableName": "user_boards_board",
+          "columnName": "boardId"
+        }
+      ],
+      [
+        {
+          "tableName": "budgeting_category",
+          "columnName": "id"
+        },
+        {
+          "tableName": "budgeting_record",
+          "columnName": "categoryId"
         }
       ]
     ]
@@ -50,6 +150,136 @@
       {
         "id": 2,
         "name": "habits"
+      }
+    ],
+    "budgeting_category": [
+      {
+        "id": 1,
+        "name": "clothes",
+        "typeId": 1,
+        "boardId": 1
+      },
+      {
+        "id": 2,
+        "name": "education",
+        "typeId": 1,
+        "boardId": 1
+      },
+      {
+        "id": 3,
+        "name": "gifts",
+        "typeId": 1,
+        "boardId": 2
+      },
+      {
+        "id": 4,
+        "name": "gifts",
+        "typeId": 2,
+        "boardId": 2
+      },
+      {
+        "id": 5,
+        "name": "salary",
+        "typeId": 2,
+        "boardId": 2
+      }
+    ],
+    "budgeting_category_type": [
+      {
+        "id": 1,
+        "name": "expense"
+      },
+      {
+        "id": 2,
+        "name": "income"
+      }
+    ],
+    "budgeting_record": [
+      {
+        "amount": 100,
+        "date": "2022-08-01",
+        "id": 1,
+        "isTrashed": true,
+        "categoryId": 1
+      },
+      {
+        "amount": 400,
+        "date": "2022-08-01",
+        "id": 2,
+        "isTrashed": true,
+        "categoryId": 2
+      },
+      {
+        "amount": 25,
+        "date": "2022-08-01",
+        "id": 3,
+        "isTrashed": false,
+        "categoryId": 2
+      },
+      {
+        "amount": 30,
+        "date": "2022-08-02",
+        "id": 4,
+        "isTrashed": false,
+        "categoryId": 3
+      },
+      {
+        "amount": 10,
+        "date": "2022-08-02",
+        "id": 5,
+        "isTrashed": false,
+        "categoryId": 3
+      },
+      {
+        "amount": 230,
+        "date": "2022-08-03",
+        "id": 6,
+        "isTrashed": false,
+        "categoryId": 4
+      }
+    ],
+    "user": [
+      {
+        "id": 1,
+        "username": "john-doe",
+        "password": "8bd309ffba83c3db9a53142b052468007b"
+      },
+      {
+        "id": 2,
+        "username": "jessica-stark",
+        "password": "8bd912e2fe84cd93c457142a1d7e77136c3bc954f183"
+      }
+    ],
+    "user_administrated_boards_board": [
+      {
+        "userId": 1,
+        "boardId": 1
+      },
+      {
+        "userId": 2,
+        "boardId": 2
+      },
+      {
+        "userId": 2,
+        "boardId": 3
+      }
+    ],
+    "user_boards_board": [
+      {
+        "userId": 1,
+        "boardId": 1
+      },
+      {
+        "userId": 2,
+        "boardId": 1
+      },
+      {
+        "userId": 2,
+        "boardId": 2
+      },
+      {
+        "userId": 2,
+        "boardId": 3
       }
     ]
   }
