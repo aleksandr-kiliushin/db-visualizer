@@ -30,29 +30,34 @@ const _id = () => {
 
 const _bilink = (id) => {
   return (root) => {
-    for (const d of root.leaves()) {
-      d.incoming = []
-      d.outgoing = []
+    for (const leaf of root.leaves()) {
+      leaf.incoming = []
+      leaf.outgoing = []
     }
-    for (const d of root.leaves()) {
+    for (const leaf of root.leaves()) {
+      // console.group()
+      // console.log("leaf data >>", JSON.stringify(leaf.data, null, 2))
       const relationsOfThisLeaf = dbPortrait.schema.relations.filter(([relationFrom]) => {
-        return relationFrom.tableName === d.data.tableName
+        return relationFrom.tableName === leaf.data.tableName
       })
+      // console.log("relationsOfThisLeaf >>", JSON.stringify(relationsOfThisLeaf, null, 2))
+      // console.groupEnd()
       for (const relation of relationsOfThisLeaf) {
         const [relationFrom, relationTo] = relation
         const relatedLeaf = root
           .leaves()
           .filter((leave) => leave.data.tableName === relationTo.tableName)
-          .find((leave) => d.data.fields[relationFrom.columnName] === leave.data.fields[relationTo.columnName])
+          .find((leave) => leaf.data.fields[relationFrom.columnName] === leave.data.fields[relationTo.columnName])
         if (relatedLeaf !== undefined) {
-          d.outgoing.push([d, relatedLeaf])
-        } else {
-          console.group()
-          console.log("relatedLeaf === undefined")
-          console.log("d >>", d)
-          console.log("relatedLeaf >>", relatedLeaf)
-          console.groupEnd()
+          leaf.outgoing.push([leaf, relatedLeaf])
         }
+        //  else {
+        // console.group()
+        // console.log("relatedLeaf === undefined")
+        // console.log("leaf >>", leaf)
+        // console.log("relatedLeaf >>", relatedLeaf)
+        // console.groupEnd()
+        // }
       }
     }
     for (const leaf of root.leaves()) {
@@ -162,7 +167,7 @@ export const define = (runtime, observer) => {
     [
       "flare.json",
       {
-        url: new URL("./sampleData.json", import.meta.url),
+        url: new URL("./db-portrait.json", import.meta.url),
         mimeType: null,
         toString,
       },
