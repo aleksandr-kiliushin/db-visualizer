@@ -1,4 +1,4 @@
-import dbPortrait from "./db-portrait.json"
+import dbPortrait from "../../dist/db-portrait.json"
 
 const _hierarchy = () => {
   return (sourceData) => {
@@ -156,7 +156,7 @@ export const define = (runtime, observer) => {
     [
       "db-portrait",
       {
-        url: new URL("./db-portrait.json", import.meta.url),
+        url: new URL("../../dist/db-portrait.json", import.meta.url),
         mimeType: null,
         toString,
       },
