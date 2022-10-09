@@ -1,12 +1,12 @@
-// export const rowNameDefinitions = (row) => "Hello from callback"
-
 export const rowNameDefinitions = {
-  board: (row) => `Board: ${row.name}`,
-  board_subject: (row) => `Board subject: ${row.name}`,
-  budgeting_category: (row) => `Budg.categ.: ${row.name}`,
-  budgeting_category_type: (row) => `Budg.categ.type: ${row.name}`,
-  budgeting_record: (row) => `Budget record #${row.id}`,
-  user: (row) => `User: ${row.username}`,
-  user_administrated_boards_board: (row) => `User #${row.userId} admins board #${row.boardId}`,
-  user_boards_board: (row) => `User #${row.userId} member in board #${row.boardId}`,
+  activity_category: (row) => `ACTIVITY CATEG: ${row.name}`,
+  activity_category_measurement_type: (row) => `ACTIVITY CATEG MEASUR TYPE: ${row.name}`,
+  board: (row) => `BOARD: ${row.name}`,
+  board_subject: (row) => `BOARD SUBJECT: ${row.name}`,
+  budgeting_category: (row) => `BUDG CATEG.: ${row.name}`,
+  budgeting_category_type: (row) => `BUDG CATEG TYPE: ${row.name}`,
+  budgeting_record: (row) => `BUDGET RECORD: #${row.id}`,
+  user: (row) => `USER: ${row.username}`,
+  user_administrated_boards_board: (row) => `USER #${row.userId} admins BOARD #${row.boardId}`,
+  user_boards_board: (row) => `USER #${row.userId} member IN BOARD #${row.boardId}`,
 }

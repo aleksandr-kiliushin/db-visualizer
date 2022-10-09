@@ -83,7 +83,10 @@ const _chart = (tree, bilink, d3, data, width, id, colornone, line, colorin, col
     .attr("x", (d) => (d.x < Math.PI ? 6 : -6))
     .attr("text-anchor", (d) => (d.x < Math.PI ? "start" : "end"))
     .attr("transform", (d) => (d.x >= Math.PI ? "rotate(180)" : null))
-    .text((d) => d.data.name)
+    // eslint-disable-next-line max-params
+    .text((leaf, index, texts) => {
+      return leaf.data.name
+    })
     .each(function (d) {
       d.text = this
     })
