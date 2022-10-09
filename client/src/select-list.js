@@ -2,7 +2,12 @@ import dbPortrait from "../../dist/db-portrait.json"
 
 const form = document.querySelector("#select-list")
 
-window.selectedTablesNames = []
+if (localStorage.selectedTablesNames === undefined) {
+  window.selectedTablesNames = Object.keys(dbPortrait.schema.tables)
+  localStorage.selectedTablesNames = JSON.stringify(window.selectedTablesNames)
+} else {
+  window.selectedTablesNames = JSON.parse(localStorage.selectedTablesNames)
+}
 
 for (const tableName of Object.keys(dbPortrait.schema.tables)) {
   const checkboxContainer = document.createElement("div")
@@ -12,7 +17,7 @@ for (const tableName of Object.keys(dbPortrait.schema.tables)) {
   checkbox.type = "checkbox"
   checkbox.id = tableName
   checkbox.value = tableName
-  checkbox.checked = true
+  checkbox.checked = window.selectedTablesNames.includes(tableName)
   checkboxContainer.append(checkbox)
 
   const checkboxLabel = document.createElement("label")
@@ -21,7 +26,6 @@ for (const tableName of Object.keys(dbPortrait.schema.tables)) {
   checkboxContainer.append(checkboxLabel)
 
   form.append(checkboxContainer)
-  window.selectedTablesNames.push(tableName)
 }
 
 form.addEventListener("change", (event) => {
@@ -30,4 +34,5 @@ form.addEventListener("change", (event) => {
   } else {
     window.selectedTablesNames = window.selectedTablesNames.filter((tableName) => tableName !== event.target.id)
   }
+  localStorage.selectedTablesNames = JSON.stringify(window.selectedTablesNames)
 })
