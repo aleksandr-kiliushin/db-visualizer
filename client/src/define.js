@@ -5,6 +5,7 @@ const _hierarchy = () => {
   return (sourceData) => {
     const result = { name: "data", children: [] }
     Object.entries(sourceData.data).forEach(([tableName, rows]) => {
+      if (!window.selectedTablesNames.includes(tableName)) return
       const tableData = { name: tableName, children: [] }
       rows.forEach((row, rowIndex) => {
         const name =

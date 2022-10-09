@@ -7,7 +7,13 @@
     <title>Document</title>
     <style>
       body {
-        margin: 10%;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 300px 6fr;
+        column-gap: 40px;
+      }
+      #diagram {
+        margin: 10% 10% 10% 0%;
       }
       .observablehq svg:not(:root) {
         overflow: visible !important;
@@ -15,7 +21,17 @@
       .observablehq:not(:first-of-type) {
         display: none;
       }
+      .checkbox-container {
+        display: flex;
+        align-items: start;
+        overflow: hidden;
+      }
     </style>
   </head>
-  <body></body>
+  <body>
+    <form id="select-list">
+      <strong style="text-decoration: underline">DB tables</strong>
+    </form>
+    <div id="diagram"></div>
+  </body>
 </html>
