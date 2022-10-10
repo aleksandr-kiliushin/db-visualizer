@@ -1,6 +1,7 @@
 export const rowNameDefinitions = {
   activity_category: (row) => `ACTIVITY CATEG: ${row.name}`,
   activity_category_measurement_type: (row) => `ACTIVITY CATEG MEASUR TYPE: ${row.name}`,
+  activity_record: (row) => `ACTIVITY RECORD: #${row.id}`,
   board: (row) => `BOARD: ${row.name}`,
   board_subject: (row) => `BOARD SUBJECT: ${row.name}`,
   budgeting_category: (row) => `BUDG CATEG.: ${row.name}`,
