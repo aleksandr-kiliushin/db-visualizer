@@ -31,9 +31,9 @@
   },
   "engines": {
     "node": "18.13.0",
-    "npm": "8.17.0"
+    "npm": "8.19.3"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "name": "db-visualizer",
   "private": false,
   "scripts": {
