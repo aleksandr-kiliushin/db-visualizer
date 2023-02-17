@@ -2,8 +2,20 @@
 
 ## FOR USERS
 
-1. `npm install --save-dev db-visualizer`;
-2. `npm pkg set scripts.visualize-db="db-visualizer"`.
+1.  `npm install --save-dev db-visualizer`;
+2.  `npm pkg set scripts.visualize-db="db-visualizer"`;
+3.  `mkdir ./.db-visualizer`;
+4.  `touch ./.db-visualizer/config.js`.
+5.  Put your configuration. Example:
+    ```
+    module.exports = {
+    	DB_HOST: "localhost",
+    	DB_NAME: "my_app_db",
+    	DB_PORT: "5432",
+    	POSTGRES_PASSWORD: "123",
+    	POSTGRES_USERNAME: "postgres",
+    }
+    ```
 
 ## FOR CONTRIBUTORS
 
