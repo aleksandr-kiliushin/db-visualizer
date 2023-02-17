@@ -7,7 +7,7 @@ services:
       dockerfile: ./Dockerfile.dev
     container_name: db-visualizer-sample-db
     env_file:
-      - ../local.env
+      - ../.env
     ports:
       - 5432:5432
     restart: on-failure
