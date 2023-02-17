@@ -1,7 +1,7 @@
 import { join } from "node:path"
 import { Client } from "pg"
 
-require("dotenv").config({ path: join(__dirname, "..", "..", "local.env") })
+require("dotenv").config({ path: join(__dirname, "..", "..", "..", "local.env") })
 
 export const queryDbData = async ({ tablesNames }: { tablesNames: string[] }) => {
   const client = new Client({

@@ -10,3 +10,5 @@
 2. `cd db-visualizer`;
 3. `npm i`;
 4. Launch Docker;
+5. `cp ./local.env.example ./local.env`;
+6. `npm run remove-sample-db-image`;
