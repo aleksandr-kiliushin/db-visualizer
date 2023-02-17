@@ -16,6 +16,7 @@
     	POSTGRES_USERNAME: "postgres",
     }
     ```
+6.  Add `/.db-visualizer/dump.sql` to `/.gitignore`.
 
 ## FOR CONTRIBUTORS
 
