@@ -10,8 +10,8 @@
 2. `cd db-visualizer`;
 3. `npm i`;
 4. `cp ./.env.example ./.env`;
-5. `npm run launch-sample-db`;
-6. `npm run restore-sample-db-from-dump`; Is this required?
-7. `cp ./your-files/dump.sql.example ./your-files/dump.sql`;
+5. `cp ./your-files/dump.sql.example ./your-files/dump.sql`;
+6. `npm run launch-sample-db`;
+7. `npm run restore-sample-db-from-dump`;
 8. `npm run generate-db-portrait`;
 9. `npm run test`.
