@@ -1,5 +1,3 @@
-console.log("Hello from db-visualizer.")
-console.log("Hello from db-visualizer.")
-console.log("Hello from db-visualizer.")
-console.log("Hello from db-visualizer.")
+#! /usr/bin/env node
+
 console.log("Hello from db-visualizer.")

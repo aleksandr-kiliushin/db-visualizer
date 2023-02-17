@@ -1,8 +1,9 @@
 # DATABASE VISUALIZER &middot; [![npm version](https://img.shields.io/npm/v/db-visualizer)](https://www.npmjs.com/package/db-visualizer)
 
-## INSTALLATION
+## FOR USERS
 
-`npm install --save-dev db-visualizer`
+1. `npm install --save-dev db-visualizer`;
+2. `npm pkg set scripts.visualize-db="db-visualizer"`.
 
 ## FOR CONTRIBUTORS
 
