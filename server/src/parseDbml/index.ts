@@ -45,8 +45,8 @@ export const parseDbml = (dbmlCode: string): IParseDbmlResult => {
       })
     }
 
-    if (dbmlLiteral.includes('Ref:"')) {
-      const relationsFieldsMatchings = dbmlLiteral.match(/"\w+"."\w+"/g)
+    if (dbmlLiteral.includes('Ref "FK_')) {
+      const relationsFieldsMatchings = dbmlLiteral.match(/"\w+"\."\w+"/g)
       if (relationsFieldsMatchings === null) {
         throw new Error("relationsFieldsMatchings is null")
       }
