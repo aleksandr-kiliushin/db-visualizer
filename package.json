@@ -50,7 +50,7 @@
     "lint": "eslint \"**/*.{js,ts}\" --max-warnings=0",
     "lint-staged": "lint-staged",
     "prettier": "prettier --write \"**/*.{js,ts,json}\"",
-    "remove-sample-db-image": "docker stop db-visualizer-sample-db && docker rm db-visualizer-sample-db && docker rmi server_database",
+    "remove-sample-db-image": "docker stop db-visualizer-sample-db && docker rm db-visualizer-sample-db && docker rmi server-database",
     "test": "jest --runInBand"
   },
   "version": "0.0.1"
