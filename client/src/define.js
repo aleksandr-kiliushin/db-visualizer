@@ -1,5 +1,5 @@
+import { rowNameDefinitions } from "../../.db-visualizer/rowNameDefinitions"
 import dbPortrait from "../../dist/db-portrait.json"
-import { rowNameDefinitions } from "../../your-files/rowNameDefinitions"
 
 const _hierarchy = () => {
   return (sourceData) => {

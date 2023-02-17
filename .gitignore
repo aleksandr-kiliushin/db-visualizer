@@ -3,5 +3,5 @@
 /coverage
 /dist
 /node_modules
-/your-files/dump.sql
+/.db-visualizer/dump.sql
 /.vscode

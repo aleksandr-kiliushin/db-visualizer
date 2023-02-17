@@ -15,4 +15,4 @@ export const execute = async ({ dumpPath }: { dumpPath: string }) => {
   await writeToFile({ schema: parsedDbmlCode, data: dbData })
 }
 
-execute({ dumpPath: join(__dirname, "..", "..", "your-files", "dump.sql") })
+execute({ dumpPath: join(__dirname, "..", "..", ".db-visualizer", "dump.sql") })

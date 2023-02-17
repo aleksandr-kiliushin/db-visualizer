@@ -28,5 +28,5 @@
     "sourceMap": true,
     "target": "es6"
   },
-  "include": ["client", "server", ".eslintrc.js", "jest.config.ts", "jest.setup.ts", "your-files"]
+  "include": ["bin", "client", "server", ".eslintrc.js", "jest.config.ts", "jest.setup.ts", ".db-visualizer"]
 }

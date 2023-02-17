@@ -1,15 +1,15 @@
 import { join } from "node:path"
 import { Client } from "pg"
 
-require("dotenv").config({ path: join(__dirname, "..", "..", "..", ".env") })
-
 export const queryDbData = async ({ tablesNames }: { tablesNames: string[] }) => {
+  const dbVisualizerConfig = await import(join(process.cwd(), ".db-visualizer", "config.js"))
+
   const client = new Client({
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    port: process.env.DB_PORT === undefined ? 5432 : parseInt(process.env.DB_PORT),
-    password: process.env.POSTGRES_PASSWORD,
-    user: process.env.POSTGRES_USERNAME,
+    host: dbVisualizerConfig.DB_HOST,
+    database: dbVisualizerConfig.DB_NAME,
+    port: Number(dbVisualizerConfig.DB_PORT),
+    password: dbVisualizerConfig.POSTGRES_PASSWORD,
+    user: dbVisualizerConfig.POSTGRES_USERNAME,
   })
   await client.connect()
   const rowsWithTableNames = await Promise.all(
