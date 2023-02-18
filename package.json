@@ -7,7 +7,8 @@
     "@dbml/core": "2.5.0",
     "@observablehq/runtime": "4.28.0",
     "@types/pg": "8.6.6",
-    "pg": "8.9.0"
+    "pg": "8.9.0",
+    "webpack-cli": "5.0.1"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "4.0.0",
@@ -29,7 +30,6 @@
     "tsconfig-paths": "4.1.2",
     "typescript": "4.9.5",
     "webpack": "5.75.0",
-    "webpack-cli": "5.0.1",
     "webpack-dev-server": "4.11.1"
   },
   "engines": {
@@ -56,5 +56,5 @@
     "remove-sample-db-image": "docker stop db-visualizer-sample-db && docker rm db-visualizer-sample-db && docker rmi server-database",
     "test": "jest --runInBand"
   },
-  "version": "1.0.3"
+  "version": "1.0.4"
 }
