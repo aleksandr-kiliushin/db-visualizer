@@ -4,10 +4,10 @@
     "db-visualizer": "bin/index.js"
   },
   "dependencies": {
+    "@dbml/core": "2.5.0",
     "@observablehq/runtime": "4.28.0"
   },
   "devDependencies": {
-    "@dbml/core": "2.5.0",
     "@trivago/prettier-plugin-sort-imports": "4.0.0",
     "@types/jest": "29.4.0",
     "@types/node": "18.13.0",
@@ -56,5 +56,5 @@
     "remove-sample-db-image": "docker stop db-visualizer-sample-db && docker rm db-visualizer-sample-db && docker rmi server-database",
     "test": "jest --runInBand"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
