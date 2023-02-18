@@ -1,6 +1,8 @@
 # DATABASE VISUALIZER &middot; [![npm version](https://img.shields.io/npm/v/db-visualizer)](https://www.npmjs.com/package/db-visualizer)
 
-![](./demo.mp4)
+<video controls>
+  <source src="./demo.mp4" type="video/mp4">
+</video>
 
 ## FOR USERS
 
