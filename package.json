@@ -6,13 +6,13 @@
   "dependencies": {
     "@dbml/core": "2.5.0",
     "@observablehq/runtime": "4.28.0",
+    "@types/pg": "8.6.6",
     "pg": "8.9.0"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "4.0.0",
     "@types/jest": "29.4.0",
     "@types/node": "18.13.0",
-    "@types/pg": "8.6.6",
     "@typescript-eslint/eslint-plugin": "5.52.0",
     "@typescript-eslint/parser": "5.52.0",
     "dotenv": "16.0.3",
@@ -56,5 +56,5 @@
     "remove-sample-db-image": "docker stop db-visualizer-sample-db && docker rm db-visualizer-sample-db && docker rmi server-database",
     "test": "jest --runInBand"
   },
-  "version": "1.0.2"
+  "version": "1.0.3"
 }
