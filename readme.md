@@ -22,7 +22,8 @@
     ```
 6.  Generate a dump of your DB and put it to `./.db-visualizer/dump.sql`;
 7.  Add `/.db-visualizer/dump.sql` to `/.gitignore`;
-8.  `npm run visualize-db`.
+8.  `npm run visualize-db`;
+9.  Open http://localhost:3200/.
 
 ## FOR CONTRIBUTORS
 
