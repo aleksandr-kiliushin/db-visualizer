@@ -1,12 +1,12 @@
 import { readFile } from "fs/promises"
 import { join } from "node:path"
 
-import { execute } from "./index"
+import { generateDbPortrait } from "./index"
 
-describe("execute", () => {
+describe("generateDbPortrait", () => {
   it("works", async () => {
     const dumpPath = join(__dirname, "..", "sample-input", "dump.sql")
-    await execute({ dumpPath })
+    await generateDbPortrait({ dumpPath })
 
     const actualFileContents = await readFile(join(__dirname, "..", "..", "dist", "db-portrait.json"), {
       encoding: "utf-8",
