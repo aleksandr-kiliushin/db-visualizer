@@ -3,10 +3,10 @@
 ## FOR USERS
 
 1.  `npm install --save-dev db-visualizer`;
-2.  `npm pkg set scripts.visualize-db="db-visualizer"`;
+2.  `npm pkg set scripts.visualize-db="ts-node ./node_modules/db-visualizer/bin/index.js && npm --prefix ./node_modules/db-visualizer run dev:client"`;
 3.  `mkdir ./.db-visualizer`;
 4.  `touch ./.db-visualizer/config.js`.
-5.  Put your configuration. Example:
+5.  Specify your DB configuration. Example:
     ```
     module.exports = {
     	DB_HOST: "localhost",

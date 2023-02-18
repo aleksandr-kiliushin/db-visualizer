@@ -56,5 +56,5 @@
     "remove-sample-db-image": "docker stop db-visualizer-sample-db && docker rm db-visualizer-sample-db && docker rmi server-database",
     "test": "jest --runInBand"
   },
-  "version": "0.0.8"
+  "version": "1.0.0"
 }
