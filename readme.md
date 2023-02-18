@@ -16,7 +16,7 @@
     	POSTGRES_USERNAME: "postgres",
     }
     ```
-6.  Generate a dump of your DB;
+6.  Generate a dump of your DB and put it to `./.db-visualizer/dump.sql`;
 7.  Add `/.db-visualizer/dump.sql` to `/.gitignore`;
 8.  `npm run visualize-db`.
 
