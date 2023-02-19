@@ -1,8 +1,16 @@
 # DATABASE VISUALIZER &middot; [![npm version](https://img.shields.io/npm/v/db-visualizer)](https://www.npmjs.com/package/db-visualizer)
 
+A tool that helps visualize particular records and their relations.
+
+<img width="1085" alt="db-visualizer-screenshot" src="https://user-images.githubusercontent.com/65129988/219932528-747959e4-6581-4721-92be-d8e1423bf1b6.png">
+
+## DEMO
+
 https://user-images.githubusercontent.com/65129988/219932262-bd474aa5-d62e-412a-aeec-2fefd98d0e16.mp4
 
 ## FOR USERS
+
+Visualization is available **only for PostgreSQL** for now.
 
 1.  `npm install --save-dev db-visualizer`;
 2.  `npm pkg set scripts.visualize-db="ts-node ./node_modules/db-visualizer/bin/index.js && npm --prefix ./node_modules/db-visualizer run dev:client"`;
