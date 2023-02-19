@@ -1,9 +1,5 @@
 # DATABASE VISUALIZER &middot; [![npm version](https://img.shields.io/npm/v/db-visualizer)](https://www.npmjs.com/package/db-visualizer)
 
-<video width="320" height="240" controls>
-  <source src="demo.mp4" type="video/mp4">
-</video>
-
 ## FOR USERS
 
 1.  `npm install --save-dev db-visualizer`;
