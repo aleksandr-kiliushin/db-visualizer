@@ -1,6 +1,6 @@
 # DATABASE VISUALIZER &middot; [![npm version](https://img.shields.io/npm/v/db-visualizer)](https://www.npmjs.com/package/db-visualizer)
 
-https://user-images.githubusercontent.com/65129988/219931980-6ef07f40-29ca-4c92-a5ac-81c8a9046c0e.mp4
+https://user-images.githubusercontent.com/65129988/219932262-bd474aa5-d62e-412a-aeec-2fefd98d0e16.mp4
 
 ## FOR USERS
 
